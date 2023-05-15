@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>GuideMeUp</title>
-    <link href="./css/main.css" rel="stylesheet" />
-    <link href="./js/main.js" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../css/js/main.js" rel="stylesheet" />
 </head>
 <body>
     <div class="guideme" > 
@@ -17,8 +17,8 @@
             <h2 style="text-align: center;">Login</h2>
             <input type="email" placeholder="Email">
             <input type="password" placeholder="Password">
-            <button id="login-btn"><a href= "./template/serviços.html" >Entrar</a></button>
-            <p style="text-align: center;"><br><br>Não tem conta? <a href="./template/regist.html" style="color:blue">Crie uma!</a></p>    
+            <button id="login-btn"><a href= "{{url_for('.serviços')}}" >Entrar</a></button>
+            <p style="text-align: center;"><br><br>Não tem conta? <a href="{{url_for('.regist')}}" style="color:blue">Crie uma!</a></p>    
             
         </div>
     </div>
