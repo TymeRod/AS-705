@@ -35,13 +35,28 @@
             <h3 >Escolha as especificações do serviço<br></h3>
             <div> <b>Tipo de pintura: </b> </div><br>
             
-            <input type="checkbox"  name="tipop" value="Opção 1"> Exterior
-            <input type="checkbox" name="tipop" value="Opção 2"> Interior
+            <input type="checkbox"  name="fooby[1][]" value="1" onclick="Check(); return false" > Exterior
+            <input type="checkbox" name="fooby[1][]" value="1" onclick="Check();return false" > Interior
             <div><br><b> Já tem materiais de pintura?</b> </div>
             <br>
-            <input type="checkbox" name="materiais" value="Opção 3"> Sim
-            <input type="checkbox" name="materiais" value="Opção 4"> Não
+
+            
+            <input type="checkbox" name="fooby[2][]" value="1" onclick="Check();"> Sim
+            <input type="checkbox" name="fooby[2][]" value="1" onclick="Check();"> Não
             <input type="submit" class="button" style="width: 45%;margin: 50px auto;" value="Enviar">
+
+
+            <br>
+            <div> 
+                <label>
+                    <input type="checkbox" class="radio" value="1" name="fooby[1][]" onclick="Check();return false"/>Kiwi</label>
+                <label>
+                    <input type="checkbox" class="radio" value="1" name="fooby[1][]" onclick="Check();return false" />Jackfruit</label>
+                <label>
+                    <input type="checkbox" class="radio" value="1" name="fooby[1][]" onclick="Check();return false"/>Mango</label>
+            </div>
+
+
         </form> 
     </div>
     
@@ -65,6 +80,36 @@
                 window.location.href = 'pagina3.html';
             }
         });}
+
+
+        $("input:checkbox").on('click', function() {
+  // in the handler, 'this' refers to the box clicked on
+  var $box = $(this);
+  if ($box.is(":checked")) {
+    // the name of the box is retrieved using the .attr() method
+    // as it is assumed and expected to be immutable
+    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+    // the checked state of the group/box on the other hand will change
+    // and the current value is retrieved using .prop() method
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+  } else {
+    $box.prop("checked", false);
+  }
+});
+ /*$(document).ready(function() {
+    $('#checkbox1').change(function() {
+        if(this.checked) {
+            $('#checkbox2').prop('checked', false);
+        }
+    });
+
+    $('#checkbox2').change(function() {
+        if(this.checked) {
+            $('#checkbox1').prop('checked', false);
+        }
+    });
+});*/ 
     </script>
     
     
