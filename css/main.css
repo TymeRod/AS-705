@@ -10,7 +10,7 @@ body{
   width: 100%;
   height: 100%;
   z-index: -1;
-    background-image: url('../images/interior-moderno-com-pinturas-e-plantas-domesticas-no-saguao-do-escritorio-vazio_124507-73130.avif');
+    background-image: url('images/interior-moderno-com-pinturas-e-plantas-domesticas-no-saguao-do-escritorio-vazio_124507-73130.avif');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -163,7 +163,7 @@ body{
 .fperfil {
     width: 54px;
     height: 59px;
-    background: url("../images/perfil.png");
+    background: url("images/perfil.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

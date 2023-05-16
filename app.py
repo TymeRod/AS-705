@@ -30,5 +30,9 @@ def regist():
 def serviços():
     return render_template('serviços.html')
 
+@app.route('/escolhas/')
+def escolhas():
+    return render_template('escolhas.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
