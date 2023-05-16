@@ -1,14 +1,20 @@
 body{
-    font-family: Arial, sans-serif;
+      font-family: Arial, sans-serif;
     font-family: Roboto, sans-serif;
     font-weight: Regular;
-    margin: 0;
-    padding: 0;
+}
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
     background-image: url('../images/interior-moderno-com-pinturas-e-plantas-domesticas-no-saguao-do-escritorio-vazio_124507-73130.avif');
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center center;
     background-size: cover;
-
+  
 }
 
 .navbar{
@@ -182,7 +188,7 @@ body{
 
 
 .guideme{/*tenha uma caixa de fundo com 0.8 de opacidade, tem de estar no meio e ter as bordas redondas*/
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(242, 242, 242, 0.839);
     border-radius: 50px;
    
     position: absolute;
