@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GuideMeUp</title>
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../js/main.js" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style>
+        form{
+            width: 400px auto;
+            margin: 0 auto;
+            
+            background-color: #f3f3f3;
+            display:block ;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50px;
+            padding: 30px;
+        }
+        input{
+            width: 50px;
+            height: 50px;
+            
+            display: inline-block;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="background-layer"></div>
+    <div class="guideme" style="height: 90px auto;"><h1>GuideMeUp  </h1> </div>
+
+    <div class="center" style="text-align: center;font-size: 30px;top: 50%;">
+       <form id="checkboxForm">
+            <h3 >Escolha as especificações do serviço<br></h3>
+            <div> <b>Tipo de pintura: </b> </div><br>
+            
+            <input type="checkbox"  name="tipop" value="Opção 1"> Exterior
+            <input type="checkbox" name="tipop" value="Opção 2"> Interior
+            <div><br><b> Já tem materiais de pintura?</b> </div>
+            <br>
+            <input type="checkbox" name="materiais" value="Opção 3"> Sim
+            <input type="checkbox" name="materiais" value="Opção 4"> Não
+            <input type="submit" class="button" style="width: 45%;margin: 50px auto;" value="Enviar">
+        </form> 
+    </div>
+    
+
+    <script>
+        function checkpage(){
+        document.getElementById('checkboxForm').addEventListener('submit', function (event) {
+            event.preventDefault(); 
+
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            var selectedOptions = Array.from(checkboxes).map(function (checkbox) {
+                return checkbox.value;
+            });
+
+            // Lógica de redirecionamento baseado nas checkboxes selecionadas
+            if (selectedOptions.includes('Opção 1') && selectedOptions.includes('Opção 2')) {
+                window.location.href = 'pagina1.html';
+            } else if (selectedOptions.includes('Opção 3')) {
+                window.location.href = 'pagina2.html';
+            } else {
+                window.location.href = 'pagina3.html';
+            }
+        });}
+    </script>
+    
+    
+
+    
+</body>
+</html>
