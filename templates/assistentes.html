@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GuideMeUp</title>
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../css/js/main.js" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style>
+        .item-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .item {
+            width: 200px;
+            text-align: center;
+            margin: 20px;
+        }
+        .item img {
+            width: 100%;
+        }
+
+        form{
+            width: 80% auto;
+            margin: 0 auto;
+            
+            background-color: #f3f3f3;
+            display:block ;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50px;
+            padding: 30px;
+            font-size: 25px;
+        }
+        input{
+            width: 40px;
+            height: 40px;
+            
+            display: inline-block;
+            
+        }
+        
+    </style>
+    <script>
+      function exibirDetalhes(itemId) {
+        var titulo = document.getElementById("titulo-detalhes");
+        var descricao = document.getElementById("descricao-detalhes");
+  
+        var detalhes = obterDetalhesItem(itemId);
+  
+        titulo.textContent = detalhes.titulo;
+        descricao.textContent = detalhes.descricao;
+  
+        var detalhesDiv = document.getElementById("detalhes");
+        detalhesDiv.style.display = "block";
+      }
+  
+      function fecharDetalhes() {
+        var detalhesDiv = document.getElementById("detalhes");
+        detalhesDiv.style.display = "none";
+      }
+  
+      function obterDetalhesItem(itemId) {
+        if (itemId === 1) {
+          return {
+            titulo: "JoãoSilva",
+            descricao: "Especialista em tintas e pinturas exteriores. Vários anos de experiência na área."
+          };
+        } else if (itemId === 2) {
+          return {
+            titulo: "José Lopes",
+            descricao: "Pintor experiente e rápido no serviço."
+          };
+        } else if (itemId === 3) {
+          return {
+            titulo: "António Mendes",
+            descricao: "Pintor experiente e hábil no serviço."
+          };
+        }
+      }
+    </script>
+</head>
+<body>
+    <div class="background-layer"></div>
+    <div class="guideme" style="height: 70px;top: 0.7%;"><h2 style="top:-30%;margin: 10px auto;">GuideMeUp  </h2> </div>
+
+    <div class="center" style="text-align: center;font-size: 30px;top: 50%; ">
+       <form id="checkboxForm" method="post" style="width: 60%;">
+        <h1>Assistentes</h1>
+
+        <div class="item-container" >
+            <div class="item" onclick="exibirDetalhes(1)">
+              <img src="../css/images/pintor1.jpg" alt="Item 1">
+              <h3>João Silva</h3>
+              <p>Ver descrição de João Silva.</p>
+            </div>
+          
+            <div class="item" onclick="exibirDetalhes(2)">
+              <img src="../css/images/pintor2.jpg" alt="Item 2">
+              <h3>José Lopes</h3>
+              <p>Ver descrição de José Lopes.</p>
+            </div>
+            
+            <div class="item" onclick="exibirDetalhes(3)">
+              <img src="../css/images/pintor3.jpg" alt="Item 3">
+              <h3>Pedro Miguel</h3>
+              <p>Ver descrição de Pedro Miguel.</p>
+            </div>
+        </div>
+      
+        <div id="detalhes" style="display: none;">
+          <h2 id="titulo-detalhes"></h2>
+          <p id="descricao-detalhes"></p>
+          <button class="button" style="width: 30%; border-radius: 50px;margin-left: 35%; font-size: 25px;" ><a href="{{url_for('.check')}}">Selecionar</a></button>
+        </div>
+        </form> 
+    </div>
+</body>
+</html>

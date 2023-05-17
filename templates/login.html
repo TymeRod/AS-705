@@ -5,6 +5,9 @@
     <link href="../css/main.css" rel="stylesheet" />
     <link href="../css/js/main.js" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  
+
 </head>
 <body>
     <div class="background-layer"></div>
@@ -13,18 +16,18 @@
     </div>
 
     </div>
-    <div class="login-container">
+    
         <div class="login-box">
             <h2 style="text-align: center;">Login</h2>
             <form method="post">
             <input type="text" placeholder="Username" name="username" id="user" >
             <input type="password" placeholder="Password" name="password" id="password">
-            <input type="submit" class="button" style="width: 45%;margin: 50px auto;" value="Enviar">
-            </form>
-            <p style="text-align: center;"><br><br>Não tem conta? <a href="{{url_for('.regist')}}" style="color:blue">Crie uma!</a></p>    
+            <input type="submit" id="login-btn" value="Login" style="width: 200px; background-color: rgb(71, 129, 255); border-radius: 50px; margin-left: 12% ; " >
             
+            <p style="text-align: center;"><br><br>Não tem conta? <a href="{{url_for('.regist')}}" style="color:rgb(74,179,255);">Crie uma!</a></p>    
+        </form>
         </div>
-    </div>
+    
     <div class="center">
         <div class="bolaperf"></div>
         <div class="fperfil"></div>        

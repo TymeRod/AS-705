@@ -13,7 +13,7 @@
 
     </div>
     <div class="navbar">
-        <a href="../index.html">Inicio</a>
+        <a href="{{url_for('.login')}}">Inicio</a>
         <a>Pão</a>
         <a>Sobre</a>
         <a>Sim</a>
@@ -22,7 +22,7 @@
             <div class="clearfix">
                 <div class="column" style="border-radius: 50%;">
                     
-                    <button class="serviços-button">Pintura</button>
+                    <button class="serviços-button"><a href="{{url_for('.escolhas')}}">Pintura</a></button>
                     <button class="serviços-button">Limpeza</button>
                     <button class="serviços-button">Canalização</button>
                     <button class="serviços-button">Eletricidade</button>

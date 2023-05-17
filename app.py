@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request
+from flask import *
+import time
 
 app = Flask(__name__, static_folder='css')
+
 
 @app.route('/')
 @app.route('/login/')
@@ -33,6 +35,46 @@ def serviços():
 @app.route('/escolhas/')
 def escolhas():
     return render_template('escolhas.html')
+
+@app.route('/escolhas/', methods=['GET', 'POST'])
+def escolhas_post():
+    
+    error = None
+    if request.method == 'POST':
+        option1 = request.form['option1']
+        option2 = request.form['option2']
+        if (option1 == '1' and option2 == '2') or (option1 == '2' and option2 == '2'):
+            resp = make_response(redirect('/assistentes/'))
+            resp.set_cookie('option','0')
+            return resp
+        else:
+            resp = make_response(redirect('/assistentes/'))
+            resp.set_cookie('option','1')
+            return resp
+
+    return render_template('escolhas.html', error=error)
+
+
+@app.route('/assistentes/')
+def assistentes():
+    return render_template('assistentes.html')
+
+@app.route('/check/')
+def check():
+    time.sleep(1)
+    if request.cookies.get('option') == '0':
+        return redirect('/catalogo/')
+    else:
+        return redirect('/pagamento/')
+
+@app.route('/catalogo/')
+def catalogo():
+    return render_template('catalogo.html')
+
+@app.route('/pagamento/')
+def pagamento():
+    return render_template('pagamento.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
