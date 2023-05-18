@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GuideMeUp</title>
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../js/main.js" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style>
+        .design-esquerda{
+            width: 20%;
+            
+            
+            display: inline;
+            background-color: aquamarine;
+            text-align: center;
+            font-size: 20px;
+            border-radius: 50px;
+            margin-top: 20%;
+            margin-left: 10%;
+            left: 10%;
+            max-width: 30%;
+        }
+        .design-direita{
+            width: 20%;    
+            display: inline;        
+            position: relative;
+            background-color: aquamarine;
+            text-align: center;
+            font-size: 20px;
+            border-radius: 50px;
+            margin-top: 20%;
+            left: 50%;
+            margin-right: 10%;
+        }
+       
+        
+    </style>
+</head>
+<body>
+    <div class="background-layer" style="background-image: url('../css/images/fundo1.png');"></div>
+   
+    <div>
+        <div class="design-esquerda">
+           esquerda
+        </div>
+        <div class="design-direita">
+            direitxa
+        </div>
+    </div>
+
+    <script>
+        function checkpage(){
+        document.getElementById('checkboxForm').addEventListener('submit', function (event) {
+            event.preventDefault(); 
+
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            var selectedOptions = Array.from(checkboxes).map(function (checkbox) {
+                return checkbox.value;
+            });
+
+            // Lógica de redirecionamento baseado nas checkboxes selecionadas
+            if (selectedOptions.includes('Opção 1') && selectedOptions.includes('Opção 2')) {
+                window.location.href = 'pagina1.html';
+            } else if (selectedOptions.includes('Opção 3')) {
+                window.location.href = 'pagina2.html';
+            } else {
+                window.location.href = 'pagina3.html';
+            }
+        });}
+
+
+        $("input:checkbox").on('click', function() {
+  // in the handler, 'this' refers to the box clicked on
+  var $box = $(this);
+  if ($box.is(":checked")) {
+    // the name of the box is retrieved using the .attr() method
+    // as it is assumed and expected to be immutable
+    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+    // the checked state of the group/box on the other hand will change
+    // and the current value is retrieved using .prop() method
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+  } else {
+    $box.prop("checked", false);
+  }
+});
+ /*$(document).ready(function() {
+    $('#checkbox1').change(function() {
+        if(this.checked) {
+            $('#checkbox2').prop('checked', false);
+        }
+    });
+
+    $('#checkbox2').change(function() {
+        if(this.checked) {
+            $('#checkbox1').prop('checked', false);
+        }
+    });
+});*/ 
+    </script>
+    
+    
+
+    
+</body>
+</html>

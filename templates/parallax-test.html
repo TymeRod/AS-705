@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GuideMeUp</title>
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../js/main.js" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .parallax {
+            height: 400px;
+            /* Altura da área de parallax */
+            overflow: hidden;
+            perspective: 1px;
+        }
+
+        .parallax-content {
+            position: relative;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: translateZ(-2px) scale(1.5);
+        }
+
+        .parallax-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: url('../css/images/fundo2.jpg') center center / cover;
+            transform: translateZ(-1px) scale(2);
+            z-index: -1;
+        }
+    </style>
+
+</head>
+    
+<body>
+    <div class="parallax">
+        <div class="parallax-content">
+          <!-- Conteúdo da sua página aqui -->
+          auasdad
+        </div>
+      </div>
+      
+</body>
