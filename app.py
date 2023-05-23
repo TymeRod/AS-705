@@ -1,5 +1,9 @@
-from flask import *
+from flask import Flask, render_template, request, redirect, make_response
+import sqlite3
 import time
+import DB
+
+
 
 app = Flask(__name__, static_folder='css')
 
@@ -16,17 +20,41 @@ def login_post():
 
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or \
-            request.form['password'] != 'admin':
-            error = 'Invalid credentials'
+        email = request.form['username']
+        password = request.form['password']
+        res = DB.login(email, password)
+        if res:
+            resp = make_response(redirect('/escolhas/'))
+            resp.set_cookie('email',email)
+            return resp
         else:
-            return serviços()
+            error = '*Utilizador ou password incorretos*'
+            
     return render_template('login.html', error=error)
+
+            # <div id="info_section">
+            #     <p style="color: red;">{{error}}</p>
+            # </div>
+            #colocar isto no html
 
 
 @app.route('/regist/')
 def regist():
     return render_template('regist.html')
+
+@app.route('/regist/', methods=['GET', 'POST'])
+def regist_post():
+    error = None
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        tel = request.form['tel']
+        date = request.form['date']
+        if DB.add_user(email, password, tel, date):
+            return redirect('/login/')
+        else:
+            error = 'Utilizador ja existe'
+    return render_template('regist.html', error=error)
 
 @app.route('/serviços/')
 def serviços():
@@ -74,6 +102,19 @@ def catalogo():
 @app.route('/pagamento/')
 def pagamento():
     return render_template('pagamento.html')
+
+@app.route('/pagamento/', methods=['GET', 'POST']) # type: ignore
+def pagamento_post():
+    if request.method == 'POST':
+        option = request.form['option1']
+        if option == 'mb':
+            return redirect('/login/') #redirecionar pra pagina mbway
+        elif option == 'mt':
+            return redirect('/login/') #redirecionar pra pagina multibanco
+        elif option == 'pp':
+            return redirect('/login/') #redirecionar pra pagina paypal
+        else:
+            return redirect('/login/') #redirecionar pra pagina cartao de credito
 
 
 if __name__ == '__main__':
