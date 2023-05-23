@@ -3,10 +3,7 @@ import sqlite3
 import time
 import DB
 
-
-
 app = Flask(__name__, static_folder='css')
-
 
 @app.route('/')
 @app.route('/login/')
