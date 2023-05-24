@@ -29,3 +29,23 @@ def login(email, password):
                     return False
         return False
 
+def get_user_by_email(email):
+    cur = con.cursor()
+    res = cur.execute('SELECT * FROM users').fetchall()
+    for i in res:
+        if i[0] == email:
+            return i
+    return None
+
+def all_users():
+    cur = con.cursor()
+    res = cur.execute('SELECT * FROM users').fetchall()
+    print(res)
+
+def delete_user(email):
+    cur = con.cursor()
+    cur.execute('DELETE FROM users WHERE email=?', (email,))
+    con.commit()
+
+all_users()
+

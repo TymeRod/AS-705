@@ -1,74 +1,75 @@
-from flask import Flask, render_template, request, redirect, make_response
-import sqlite3
 import time
+from flask import Flask, render_template, request, redirect, make_response
+import hashlib
+import datetime
 import DB
+
 
 app = Flask(__name__, static_folder='css')
 
-@app.route('/')
-@app.route('/login/')
+@app.route('/', methods=['POST', 'GET'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
-    print('login')
-    return render_template('login.html')
-
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/login/', methods=['GET', 'POST'])
-def login_post():
-
-    error = None
-    if request.method == 'POST':
-        email = request.form['username']
-        password = request.form['password']
-        res = DB.login(email, password)
-        if res:
-            resp = make_response(redirect('/serviços/'))
-            resp.set_cookie('email',email)
+    email = request.form.get('username')
+    password = request.form.get('password')
+    if password is not None:
+        user = DB.get_user_by_email(email)
+        if user and user[1] == hashlib.sha256(password.encode()).hexdigest():
+            DB.login(email, hashlib.sha256(password.encode()).hexdigest())
+            resp = make_response(redirect('/serviços'))
+            resp.set_cookie('email', str(email))
             return resp
-        else:
-            error = '*Utilizador ou password incorretos*'
-            
+
+    error = 'Invalid username or password'
     return render_template('login.html', error=error)
 
-            # <div id="info_section">
-            #     <p style="color: red;">{{error}}</p>
-            # </div>
-            #colocar isto no html
 
 
-@app.route('/regist/')
+@app.route('/regist/', methods=['POST', 'GET'])
 def regist():
-    return render_template('regist.html')
-
-@app.route('/regist/', methods=['GET', 'POST'])
-def regist_post():
     error = None
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        tel = request.form['tel']
-        date = request.form['date']
-        if DB.add_user(email, password, tel, date):
-            return redirect('/login/')
-        else:
-            error = 'Utilizador ja existe'
+        email = request.form.get('email')
+        password = request.form.get('password')
+        conf_pass = request.form.get('conf')
+        tel = request.form.get('tel')
+        date_str = request.form.get('date')
+
+            
+        if password is not None and email is not None and tel is not None and date_str is not None:
+            if password == conf_pass:
+                date = datetime.datetime.strptime(date_str, '%Y-%m-%d').date()
+
+                if DB.add_user(email, hashlib.sha256(password.encode()).hexdigest(), tel, date):
+
+                    return redirect('/login')
+            else:
+                error = 'Passwords do not match'
+                return render_template('regist.html', error=error)
+
+        error = 'User already exists'
     return render_template('regist.html', error=error)
+
+@app.route('/logout')
+def logout():
+
+    resp = make_response(redirect('/login'))
+    resp.delete_cookie('email')
+    return resp
 
 @app.route('/serviços/')
 def serviços():
     return render_template('serviços.html')
 
-@app.route('/escolhas/')
-def escolhas():
-    return render_template('escolhas.html')
+
 
 @app.route('/escolhas/', methods=['GET', 'POST'])
-def escolhas_post():
-    
+def escolhas():
     error = None
     if request.method == 'POST':
-        option1 = request.form['option1']
-        option2 = request.form['option2']
-        if (option1 == '1' and option2 == '2') or (option1 == '2' and option2 == '2'):
+        option1 = request.form.get('option1')
+        option2 = request.form.get('option2')
+        if option1 is not None and option2 is not None and ((option1 == '1' and option2 == '2') or (option1 == '2' and option2 == '2')):
             resp = make_response(redirect('/assistentes/'))
             resp.set_cookie('option','0')
             return resp
@@ -96,23 +97,21 @@ def check():
 def catalogo():
     return render_template('catalogo.html')
 
-@app.route('/pagamento/')
+
+
+@app.route('/pagamento/', methods=['GET', 'POST'])
 def pagamento():
-    return render_template('pagamento.html')
-
-@app.route('/pagamento/', methods=['GET', 'POST']) # type: ignore
-def pagamento_post():
     if request.method == 'POST':
-        option = request.form['option1']
+        option = request.form.get('option1')
         if option == 'mb':
-            return redirect('/login/') #redirecionar pra pagina mbway
+            return redirect('/mbway/')
         elif option == 'mt':
-            return redirect('/login/') #redirecionar pra pagina multibanco
+            return redirect('/multibanco/')
         elif option == 'pp':
-            return redirect('/login/') #redirecionar pra pagina paypal
-        else:
-            return redirect('/login/') #redirecionar pra pagina cartao de credito
-
+            return redirect('/paypal/')
+        elif option == 'cc':
+            return redirect('/credit-card/')
+    return redirect('/pagamento/')
 
 if __name__ == '__main__':
     app.run(debug=True)
