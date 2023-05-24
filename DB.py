@@ -29,5 +29,3 @@ def login(email, password):
                     return False
         return False
 
-
-
