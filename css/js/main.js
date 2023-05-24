@@ -19,13 +19,39 @@ function mostrarInput() {
     var Mbway= document.querySelector("#MBWay");
     var numtel= document.querySelector("#numtel");
 
-    if (Mbway.checked==true) {
+    var cartao= document.querySelector("#card");
+    var nomecartao= document.querySelector("#nomecartao");
+    var numcartao= document.querySelector("#numcartao");
+    var validade= document.querySelector("#datacartao");
+    var cvv= document.querySelector("#cartaocvv");
+    if (Mbway.checked) {
         numtel.style.display = "block";
-        numtel.style.animation = "Mbway 1s ease-in-out infinite";
-        numtel.style.background = "#f2f2f2";
-        numtel.style.border = "1px solid #ccc";
-    } else {
+        numtel.style.animation = "cair 0.3s ease-in-out ";
+        nomecartao.style.display = "none";
+        numcartao.style.display = "none";
+        validade.style.display = "none";
+        cvv.style.display = "none";
+    } else if (cartao.checked) {
         numtel.style.display = "none";
+        nomecartao.style.display = "block";
+        nomecartao.style.animation = "cair 0.3s ease-in-out ";
+
+
+        numcartao.style.display = "block";
+        numcartao.style.animation = "cair 0.3s ease-in-out ";
+
+        validade.style.display = "block";
+        validade.style.animation = "cair 0.3s ease-in-out ";
+
+        cvv.style.display = "block";
+        cvv.style.animation = "cair 0.3s ease-in-out ";
+
+    }else{
+        numtel.style.display = "none";
+        nomecartao.style.display = "none";
+        numcartao.style.display = "none";
+        validade.style.display = "none";
+        cvv.style.display = "none";
     }
 }
    
