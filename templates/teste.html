@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+.cart-button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.product {
+  width: 300px;
+  margin-bottom: 30px;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+}
+
+.product h3, .product p {
+  margin: 10px 0;
+}
+
+.add-to-cart {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+        </style>
+
+    </head>
+    <body>
+        <header>
+            <h1>Loja de Remodelações</h1>
+            <button class="cart-button">Carrinho de Compras</button>
+          </header>
+          
+          <div class="catalog">
+            <div class="product">
+              <img src="../css/images/Pincel.png" alt="Product 1">
+              <h3>Produto 1</h3>
+              <p>Descrição do Produto 1</p>
+              <button class="add-to-cart">Adicionar ao Carrinho</button>
+            </div>
+            
+            <div class="product">
+              <img src="../css/images/Tinta.png" alt="Product 2">
+              <h3>Produto 2</h3>
+              <p>Descrição do Produto 2</p>
+              <button class="add-to-cart">Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Adicione mais produtos conforme necessário -->
+            
+          </div>
+    </body>
+</html>
