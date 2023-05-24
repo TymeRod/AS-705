@@ -25,7 +25,42 @@
             display: inline-block;
             
         }
+
+        .option {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-left: 20%;
+        }
+        .option input {
+            margin-right: 10px;
+        }
+
+
+        
+        .option Mbway{
+            animation: Mbway 1s ease-in-out infinite;
+        }
+
+        @keyframes Mbway {
+            0% {
+                transform: translateX(0);
+                bottom: 0px;
+            }
+            50% {
+                transform: translateX(0);
+                bottom: 100px;
+            }
+            100% {
+                transform: translateX(-100%);
+                bottom: 0px;
+            }
+            
+        }
+
     </style>
+
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     
@@ -39,47 +74,34 @@
         <form id="checkboxForm" method="post">
             <h3>Escolha o método de pagamento<br></h3>
             <div class="option">
-                <input type="radio" name="option1" value="mb" required>
+                
+                <input type="radio" name="option1" value="mb" required onclick="mostrarInput()">
                 <label for="option1"><img src="../css/images/mbway.png" alt="MBWay" width="40"> MBWay</label>
+                
             </div>
             <div class="option">
-                <input type="radio" name="option1" value="mt" required>
+                <input type="radio" name="option1" value="mt" required id="MBWay">
                 <label for="option2"><img src="../css/images/multibanco.png" alt="Multibanco" width="40"> Multibanco</label>
             </div>
             <div class="option">
-                <input type="radio" name="option1" value="pp" required>
+                <input type="radio" name="option1" value="pp" required id="PayPal">
                 <label for="option3"><img src="../css/images/paypal.png" alt="Cartão de Crédito" width="40"> PayPal</label>
             </div>
             <div class="option">
-                <input type="radio" name="option1" value="cc" required>
+                <input type="radio" name="option1" value="cc" required onclick="">
                 <label for="option3"><img src="../css/images/cartao_de_credito.png" alt="Cartão de Crédito" width="40"> Cartão de Crédito</label>
             </div>
 
             <input type="submit" class="button" style="width: 45%; margin: 50px auto; border-radius: 50px;" value="Confirmar">
+
+            <div id="numtel" style="display: none; background-color: blueviolet;">
+                <label for="inputNovo">Nova caixa de entrada:</label>
+                <input type="text" id="inputNovo">Sim
+            </div>
         </form>
     </div>
     
-    <style>
-        .option {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            margin-bottom: 10px;
-            padding-left: 20%;
-        }
-        .option input {
-            margin-right: 10px;
-        }
-    </style>
-    
-    
-
-    
-
-    
-    
-
-    
+        
 </body>
 
 </html>
