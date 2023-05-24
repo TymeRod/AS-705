@@ -21,7 +21,7 @@ def login_post():
         password = request.form['password']
         res = DB.login(email, password)
         if res:
-            resp = make_response(redirect('/escolhas/'))
+            resp = make_response(redirect('/serviços/'))
             resp.set_cookie('email',email)
             return resp
         else:
