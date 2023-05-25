@@ -7,58 +7,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
     <style>
+        body{
+            background-color: rgb(210, 209, 209);
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 50px;
+            margin-top: 15%;
+        }
+        
         .column1 {
-    float: left;
-    width: 50%;
-    padding: 10px;
-    box-sizing: border-box;
-    margin-top: 40%;
-    
-}
+            width: 25%;
+            box-sizing: border-box;
+            margin-top: -5%;
+            
+        }
     </style>
 </head>
 <body>
 
-    <div class="guideme" > 
-        <h1>Serviços</h1>
-
-    </div>
-    <div class="navbar">
-       
-        <h1 style="width: 100%; height: auto;">GuideMeUp</h1>
-        <a href="{{url_for('.login')}}"style="color: black;">Inicio</a>
-        <a href="#" style="color: black;">Catálogo</a>
-        <a href="#" style="color: black;">Conta</a>
-        <a href="#" style="color: black;">Sobre</a>
-    </div>
-    <div class="serviços-box-placeholder" style="background-color: transparent;"></div>  
-            <div class="clearfix">
-                <div class="column1" style="border-radius: 50%;">
-                    
-                    <button class="serviços-button"><a href="{{url_for('.escolhas')}}">Pintura</a></button>
-                    <button class="serviços-button">Limpeza</button>
-                    
-                </div>
-                <div class="column1" style="border-radius: 50%;">
-                    
-                    <button class="serviços-button">Canalização</button>
-                    <button class="serviços-button">Eletricidade</button>
-                </div>
-                <div class="column1" style="border-radius: 50%;">
-                    <button class="serviços-button">Carpintaria</button>
-                    <button class="serviços-button">Serralharia</button>
-                    
-            </div>
-            <div class="column1" style="border-radius: 50%;">
-                
-                <button class="serviços-button">Jardinagem</button>
-                <button class="serviços-button">Outros</button>
-        </div>
-        </div>
+    <div class="guideme1" style="padding-bottom: 200%;" > 
+        <h1 style="padding-left: 5% ;">Serviços</h1>
+        <h5 style="width: 600px; margin-top: -20%;font-size:30px;padding-left: 3%;">Escolha a opção mais adequada para si:</h5>
     </div>
    
-    
 
+    <div class="navbar">
+        <h1 style="width: 100%; height: auto; color:rgb(255, 255, 255)">GuideMeUp</h1>
+        <a href="{{url_for('.login')}}">Inicio</a>
+        <a href="#" >Catálogo</a>
+        <a href="#" >Conta</a>
+        <a href="#" >Sobre</a>
+    </div>
     
+    <div class="container">
+        <div class="column1" style="padding-left: 10%;">
+            <button class="serviços-button" style="background-image: url('../css/images/pintorfundo.jpg');"><a href="{{url_for('.escolhas')}}"><span>Pintura</span></a></button>
+            <button class="serviços-button" style="background-image: url('../css/images/limpeza1.jpg');"><span>Limpeza</span></button>
+        </div>
+
+        <div class="column1"style="padding-left: 7%;">
+            <button class="serviços-button" style="background-image: url('../css/images/canalizacoes1.jpg');"><span>Canalização</span></button>
+            <button class="serviços-button" style="background-image: url('../css/images/eletricidade1.jpeg');"><span>Eletricidade</span></button>
+        </div>
+
+        <div class="column1"style="padding-left: 4%;">
+            <button class="serviços-button" style="background-image: url('../css/images/carpintaria1.jpg');"><span>Carpintaria</span></button>
+            <button class="serviços-button" style="background-image: url('../css/images/serralheria.jpg');"><span>Serralharia</span></button>
+        </div>
+
+        <div class="column1"style="padding-left: 1%;">
+            <button class="serviços-button" style="background-image: url('../css/images/jardinagem1.jpg');"><span>Jardinagem</span></button>
+            <button class="serviços-button" style="background-image: url('../css/images/cuidador1.jpg');"><span>Assistência</span></button>
+        </div>
+    </div>
 </body>
 </html>
