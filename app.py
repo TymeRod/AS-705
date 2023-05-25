@@ -3,9 +3,37 @@ from flask import Flask, render_template, request, redirect, make_response
 import hashlib
 import datetime
 import DB
+from PIL import Image, ImageDraw, ImageFont
 
 
 app = Flask(__name__, static_folder='css')
+
+compra = []
+
+def draw():
+    # Open the image
+    image = Image.open('./css/images/carrinho.png')
+
+    # Create a drawing object
+    draw = ImageDraw.Draw(image)
+
+    # Define the circle parameters
+    x, y = 92, 77
+    radius = 25
+
+    # Draw the circle
+    draw.ellipse((x-radius, y-radius, x+radius, y+radius), fill='red')
+
+    font = ImageFont.truetype('Arial.ttf', size=25)
+
+    # Draw the number inside the circle
+    number = len(compra)
+    text_width, text_height = draw.textsize(str(number), font=font)
+    draw.text((x-text_width/2, y-text_height/2), str(number), fill='white',font=font)
+
+    # Save the modified image
+    image.save('./css/images/carrinho1.png')
+
 
 @app.route('/', methods=['POST', 'GET'])
 def inicio():
@@ -102,25 +130,32 @@ def check():
     else:
         return redirect('/pagamento/')
 
-@app.route('/catalogo/')
+@app.route('/catalogo/', methods=['GET', 'POST'])
 def catalogo():
+    draw()
+    if request.method == 'POST':
+        if 'carrinho' in request.form:
+            return redirect('/pagamento/')
+        if 'tintaAcril' in request.form:
+            compra.append('Tinta mate exterior BRANCO 5L')
+        if 'tinta' in request.form:
+            compra.append('Tinta mate exterior BRANCO 4L')
+        if 'pincel' in request.form:
+            compra.append('Pincel  UNIVERSAL PP 60MM')
+        if 'rolo' in request.form:
+            compra.append('Rolo Antigota Poliamida')
+        if 'tintaExtInt' in request.form:
+            compra.append('Tinta anti-mofo 5 L, branco')
     return render_template('catalogo.html')
+
+def add_carrinho():
+    ...
 
 
 
 @app.route('/pagamento/', methods=['GET', 'POST'])
 def pagamento():
-    if request.method == 'POST':
-        option = request.form.get('option1')
-        if option == 'mb':
-            return redirect('/mbway/')
-        elif option == 'mt':
-            return redirect('/multibanco/')
-        elif option == 'pp':
-            return redirect('/paypal/')
-        elif option == 'cc':
-            return redirect('/credit-card/')
-    return render_template('pagamento.html')
+    return render_template('pagamento.html', compra=compra)
 
 if __name__ == '__main__':
     app.run(debug=True)
