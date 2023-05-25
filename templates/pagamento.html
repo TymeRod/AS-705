@@ -42,6 +42,7 @@
             display: inline-block;
             
         }
+        
 
         .option {
             display: flex;
@@ -82,6 +83,68 @@
             border: 0px solid #f3f3f3;
         }
         
+        .column {
+            flex: 1 1 30%;
+            
+        width: 50%;
+        padding: 10px;
+    }
+
+    .product-list {
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+    }
+
+    .payment-methods {
+        height: 100%;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    .total-amount {
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        margin-top: 30px;
+        padding: 10px;
+        background-color: #0073ff;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+        form {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            flex-direction: column;
+        }
+
+        .column {
+            width: 100%;
+            
+
+            
+        }
+    }
 
         @keyframes cair {
             0% {
@@ -114,8 +177,8 @@
 </head>
 <body>
     <div class="background-layer"></div>
-    <div class="guideme" style="height: 90px auto;"><h1>GuideMeUp</h1></div>
     <div class="navbar">
+        <h1 style="width: 100%; height: auto;">GuideMeUp</h1>
         <a href="#" >Início </a>
         <a href="#">Catálogo</a>
         <a href="#">Conta</a>
@@ -123,37 +186,62 @@
       </div>
     <div class="center" style="text-align: center; font-size: 30px; top: 50%;">
         <form id="checkboxForm" method="post">
-            <h3>Escolha o método de pagamento<br></h3>
-            <div class="option">
-
-                <input type="radio" name="option1" id="MBWay" value="mb" required onclick="mostrarInput();">
-                <label for="option1"><img src="../css/images/mbway.png" alt="MBWay" width="40"> MBWay</label>
-              
+            <div class="column">
+                <div class="product-list">
+                    <h3>Produtos selecionados</h3>
+                    <ul>
+                        <li>Produto 1</li>
+                        <li>Produto 2</li>
+                        <li>Produto 3</li>
+                        <li>Produto 4</li>
+                        <li>Produto 5</li>
+                        <li>Produto 6</li>
+                        <li>Produto 7</li>
+                        <li>Produto 8</li>
+                        <li>Produto 9</li>
+                        <li>Produto 10</li>
+                        <li>Produto 11</li>
+                        <li>Produto 12</li>
+                        <li>Produto 13</li>
+                        <li>Produto 14</li>
+                        <li>Produto 15</li>
+                    </ul>
+                </div>
+                <div class="total-amount">
+                    <h3>Valor total a pagar:</h3>
+                    <p>100,00€</p>
+                    <input type="submit" class="button" style="width: 100%; margin-top: 30px; border-radius: 50px;" value="Realizar pagamento">
+                </div>
             </div>
-            <input type="tel" id="numtel" name="numtel" placeholder="Número de telemóvel" >
-            
-            <div class="option">
-                <input type="radio" name="option1" value="mt" required onclick="mostrarInput()">
-                <label for="option2"><img src="../css/images/multibanco.png" alt="Multibanco" width="40" > Multibanco</label>
+            <div class="column">
+                <div class="payment-methods" style="margin-top: 0%;">
+                    <h3>Escolha o método de pagamento</h3>
+                    <div class="option">
+                        <input type="radio" name="option1" id="MBWay" value="mb" required onclick="mostrarInput();">
+                        <label for="option1"><img src="../css/images/mbway.png" alt="MBWay" width="40"> MBWay</label>
+                    </div>
+                    <input type="tel" id="numtel" name="numtel" placeholder="Número de telemóvel" >
+                    <div class="option">
+                        <input type="radio" name="option1" value="mt" required onclick="mostrarInput()">
+                        <label for="option2"><img src="../css/images/multibanco.png" alt="Multibanco" width="40" > Multibanco</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="option1" value="pp" required id="PayPal" onclick="mostrarInput()">
+                        <label for="option3"><img src="../css/images/paypal.png" alt="Cartão de Crédito" width="40"> PayPal</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="option1" value="cc" required onclick="mostrarInput()" id="card">
+                        <label for="option3"><img src="../css/images/cartao_de_credito.png" alt="Cartão de Crédito" width="40"> Cartão de Crédito</label>
+                    </div>
+                    <input type="text" id="nomecartao" name="nomecartao" class="cartao" placeholder="Nome do titular" >
+                    <input type="text" id="numcartao" name="numcartao" class="cartao" placeholder="Número do cartão" >
+                    <div class="option">
+                        <input type="text" id="datacartao" name="datavalidade" class="cartao" placeholder="Data de validade" style="left: -10%;">
+                        <input type="text" id="cartaocvv" name="cvv" class="cartao" placeholder="CVV" style="left: -10%;">
+                    </div>
+                </div>
             </div>
-            
-            <div class="option">
-                <input type="radio" name="option1" value="pp" required id="PayPal" onclick="mostrarInput()">
-                <label for="option3"><img src="../css/images/paypal.png" alt="Cartão de Crédito" width="40"> PayPal</label>
-            </div>
-            <div class="option">
-                <input type="radio" name="option1" value="cc" required onclick="mostrarInput()" id="card">
-                <label for="option3"><img src="../css/images/cartao_de_credito.png" alt="Cartão de Crédito" width="40"> Cartão de Crédito</label>
-            </div>
-                <input type="text" id="nomecartao" name="nomecartao" class="cartao" placeholder="Nome do titular" >
-            
-                <input type="text" id="numcartao" name="numcartao" class="cartao" placeholder="Número do cartão" >
-            <div class="option">
-               <input type="text" id="datacartao" name="datavalidade" class="cartao" placeholder="Data de validade" style="left: -10%;">
-                <input type="text" id="cartaocvv" name="cvv" class="cartao" placeholder="CVV" style="left: -10%;">
-            
-            </div>
-            <input type="submit" class="button" style="width: 45%; margin: 50px auto; border-radius: 50px;" value="Confirmar">
+        
 
            
         </form>
