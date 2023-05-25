@@ -131,30 +131,37 @@ def check():
         return redirect('/pagamento/')
 
 @app.route('/catalogo/', methods=['GET', 'POST'])
-def catalogo():
+
+def catalogo_post():
     draw()
     if request.method == 'POST':
         if 'carrinho' in request.form:
             return redirect('/pagamento/')
-        if 'tintaAcril' in request.form:
+        if 'tintaAcril' in request.form:         
             compra.append('Tinta mate exterior BRANCO 5L')
+            draw()
         if 'tinta' in request.form:
             compra.append('Tinta mate exterior BRANCO 4L')
+            draw()
         if 'pincel' in request.form:
             compra.append('Pincel  UNIVERSAL PP 60MM')
+            draw()
         if 'rolo' in request.form:
             compra.append('Rolo Antigota Poliamida')
+            draw()
         if 'tintaExtInt' in request.form:
             compra.append('Tinta anti-mofo 5 L, branco')
+            draw()
     return render_template('catalogo.html')
 
-def add_carrinho():
-    ...
+
 
 
 
 @app.route('/pagamento/', methods=['GET', 'POST'])
 def pagamento():
+    for i in compra:
+        print(i)
     return render_template('pagamento.html', compra=compra)
 
 if __name__ == '__main__':
