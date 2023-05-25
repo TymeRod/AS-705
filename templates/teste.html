@@ -2,88 +2,59 @@
 <html>
     <head>
         <style>
-            body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+   
+            body{
+                height: 100vh;
+                width: 100vw;
+                background-color: black;
+                margin: 0rem;
+                overflow: hidden;
+            }  
+            #img-track{
+                display: flex;
+                gap:4vwin;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(0%, -50%);
 
-header {
-  background-color: #f1f1f1;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-h1 {
-  margin: 0;
-}
-
-.cart-button {
-  background-color: #555;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.catalog {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
-}
-
-.product {
-  width: 300px;
-  margin-bottom: 30px;
-}
-
-.product img {
-  width: 100%;
-  height: auto;
-}
-
-.product h3, .product p {
-  margin: 10px 0;
-}
-
-.add-to-cart {
-  background-color: #555;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-}
+            }    
+            .image{
+                
+                transition: transform 0.5s ease-in-out;
+            }   
 
         </style>
 
+        <script>
+
+            const track = document.querySelector("#img-track");
+
+            window.onmousedown= e => {
+
+                track.dataset.mouseDownAt= "0";
+                track.dataset.prevPercentage= "0";
+
+                const mouseData= parseFloat(track.dataset.mouseDownAt)- e.clientX,
+                maxDelta= window.innerWidth/2;
+
+               const percentage = (mouseData/maxDelta) * -100;
+
+               nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
+
+                track.style.transform = `translate(${nextPercentage}%, -50%)`;
+            }
+        </script>
+
     </head>
     <body>
-        <header>
-            <h1>Loja de Remodelações</h1>
-            <button class="cart-button">Carrinho de Compras</button>
-          </header>
-          
-          <div class="catalog">
-            <div class="product">
-              <img src="../css/images/Pincel.png" alt="Product 1">
-              <h3>Produto 1</h3>
-              <p>Descrição do Produto 1</p>
-              <button class="add-to-cart">Adicionar ao Carrinho</button>
-            </div>
-            
-            <div class="product">
-              <img src="../css/images/Tinta.png" alt="Product 2">
-              <h3>Produto 2</h3>
-              <p>Descrição do Produto 2</p>
-              <button class="add-to-cart">Adicionar ao Carrinho</button>
-            </div>
-            
-            <!-- Adicione mais produtos conforme necessário -->
-            
-          </div>
-    </body>
+        <div id="img-track" data-mouse-down-at="0" data-prev-percentage="0">
+            <img class="image" src="https://images.unsplash.com/photo-1684530535738-49239ce8cd29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" draggable="false"/>
+            <img class="image" src="https://images.unsplash.com/photo-1684662863663-d25e39fc4c10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" draggable="false"/>
+            <img class="image" src="" draggable="false"/>
+            <img class="image" src="" draggable="false"/>
+
+            <img class="image" src="" draggable="false"/>
+            <img class="image" src="" draggable="false"/>
+        </body>
 </html>

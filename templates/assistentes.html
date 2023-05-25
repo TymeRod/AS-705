@@ -39,6 +39,13 @@
             display: inline-block;
             
         }
+        .descri{
+          border: 1px solid rgb(255, 255, 255);
+          border-radius: 20px;
+          margin: 0 auto;
+          padding: 5px;
+          background-color: rgb(164, 164, 164);
+        }
         
     </style>
     <script>
@@ -63,7 +70,7 @@
       function obterDetalhesItem(itemId) {
         if (itemId === 1) {
           return {
-            titulo: "JoãoSilva",
+            titulo: "João Silva",
             descricao: "Especialista em tintas e pinturas exteriores. Vários anos de experiência na área."
           };
         } else if (itemId === 2) {
@@ -73,7 +80,7 @@
           };
         } else if (itemId === 3) {
           return {
-            titulo: "António Mendes",
+            titulo: "Pedro Miguel",
             descricao: "Pintor experiente e hábil no serviço."
           };
         }
@@ -92,19 +99,19 @@
             <div class="item" onclick="exibirDetalhes(1)">
               <img src="../css/images/pintor1.jpg" alt="Item 1">
               <h3>João Silva</h3>
-              <p>Ver descrição de João Silva.</p>
+              <p class="descri">Ver descrição de João Silva.</p>
             </div>
           
             <div class="item" onclick="exibirDetalhes(2)">
               <img src="../css/images/pintor2.jpg" alt="Item 2">
               <h3>José Lopes</h3>
-              <p>Ver descrição de José Lopes.</p>
+              <p class="descri">Ver descrição de José Lopes.</p>
             </div>
             
             <div class="item" onclick="exibirDetalhes(3)">
               <img src="../css/images/pintor3.jpg" alt="Item 3">
               <h3>Pedro Miguel</h3>
-              <p>Ver descrição de Pedro Miguel.</p>
+              <p class="descri">Ver descrição de Pedro Miguel.</p>
             </div>
         </div>
       
