@@ -56,7 +56,7 @@
             transform: translateY(1%);
             
         }
-        input[type=submit]{
+        .iBut{
             background-color: #555;
             color: #fff;
             border: none;
@@ -69,7 +69,7 @@
             
             transition-duration: 0.4s;
         }
-        input[type=submit]:hover{
+        .iBut:hover{
             background-color: #000;
         }
 
@@ -79,7 +79,7 @@
             position: absolute;
             margin-right: 20px;
             margin-top: 20px;
-            background-image: url("../css/images/carrinho.png");
+            background-image: url("../css/images/carrinho1.png");
             background-size: 50px;
             background-repeat: no-repeat;
             width: 3%;
@@ -91,6 +91,8 @@
         .carrinho:hover{            
             transform: translate(-3%,-3%);
             background-size: 55px;
+            line-height: 100;
+            overflow: hidden;
         }
     </style> 
   
@@ -105,8 +107,8 @@
         <a href="#">Sobre</a>
       </div>
     
-    <form method="post">
-        <input type="button" class="carrinho">
+    <form method="post" style=" background-color: rgba(255, 255, 255, 0.9)">
+        <input type="submit" class="carrinho" name="carrinho">
            <h1>Items no catálogo</h1>
             <hr>
             <div class="item">
@@ -116,7 +118,7 @@
                 <div style="left: 50%;"> 
                     <h3> Tinta Acrilica</h3>
                     <h5>(Tinta mate exterior BRANCO 5L)</h5>
-                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;">
+                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaAcril" class="iBut">
                     13.49€
                     
                 </div>
@@ -128,7 +130,7 @@
                 <div style="left: 50%;"> 
                  <h3> Tinta Acrilica</h3>   
                     <h5>(Tinta mate exterior BRANCO 4L)</h5>
-                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;">
+                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tinta" class="iBut">
 
                     11.99€
 
@@ -141,7 +143,7 @@
                 <div style="left: 50%;"> 
                     <h3> Pincel</h3>
                     <h5>(Pincel  UNIVERSAL PP 60MM)</h5>
-                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;">
+                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="pincel" class="iBut">
 
                     5.49€
 
@@ -155,7 +157,7 @@
                 <div style="left: 50%;"> 
                     <h3> Rolo</h3>
                     <h5>(Rolo Antigota Poliamida)</h5>
-                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;">
+                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="rolo" class="iBut">
 
                     7.99€
 
@@ -168,7 +170,7 @@
                <div style="left: 50%;"> 
                 <h3> Tinta Ext. e Int.</h3>
                    <h5>(Tinta anti-mofo 5 L, branco)</h5>
-                   <input type="submit" value="Adicionar ao carrinho" style="display: inline;">
+                   <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaExtInt" class="iBut">
 
                    25.89€
 
