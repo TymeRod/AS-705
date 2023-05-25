@@ -86,16 +86,21 @@
             height: 5%;
             border: none;
             background-color: transparent;
+            
+        }
+        .carrinho:hover{            
+            transform: translate(-3%,-3%);
+            background-size: 55px;
         }
     </style> 
   
 
 </head>
 <body>
-    <div class="background-layer"></div>
+    <div class="background-layer" style="background-color: white;background-image: none;"></div>
     <div class="navbar">
-        <a href="#" >Início </a>
-        <a href="#" class="active">Catálogo</a>
+        <a href="{{url_for('.index')}}" >Início </a>
+        <a href="{{url_for('.catalogo')}}" class="active">Catálogo</a>
         <a href="#">Conta</a>
         <a href="#">Sobre</a>
       </div>

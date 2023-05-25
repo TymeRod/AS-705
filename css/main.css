@@ -263,6 +263,7 @@ a:visited {
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px 30px;
+   
     
 }
 
@@ -281,6 +282,9 @@ a:visited {
     background: rgba(8,151,255,1);
     box-shadow: 0 2px rgb(33, 147, 230);
     transform: translateY(1px);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .column {
