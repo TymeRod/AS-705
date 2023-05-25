@@ -8,6 +8,15 @@ import DB
 app = Flask(__name__, static_folder='css')
 
 @app.route('/', methods=['POST', 'GET'])
+def inicio():
+    return render_template('index.html')
+
+@app.route('/index/')
+def index():
+    return redirect('/')
+
+
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     email = request.form.get('username')
@@ -111,7 +120,7 @@ def pagamento():
             return redirect('/paypal/')
         elif option == 'cc':
             return redirect('/credit-card/')
-    return redirect('/pagamento/')
+    return render_template('pagamento.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

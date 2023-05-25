@@ -5,32 +5,43 @@
     <link href="../css/main.css" rel="stylesheet" />
     <script src="../css/js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style>
+        .image-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+    </style>
   
 
 </head>
 <body>
-    <div class="background-layer"></div>
-    <div class="guideme" > 
-        <h1 style="font-family: Lato, sans-serif;">GuideMeUp</h1>
-    </div>
+    <div class="background-layer" style="background-image: url(https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80); "></div>
+        <div class="guideme" > 
+            <h1 style="font-family: Lato, sans-serif;">GuideMeUp</h1>
+        </div>
 
     </div>
-    
-        <div class="login-box">
-            <h2 style="text-align: center;">Login</h2>
-            <form method="post">
-            <input type="text" placeholder="Username" name="username" id="user" >
-            <input type="password" placeholder="Password" name="password" id="password">
-            <input type="submit" id="login-btn" value="Login" style="width: 200px; background-color: rgb(71, 129, 255); border-radius: 50px; margin-left: 12% ; " >
-            
-            <p style="text-align: center;"><br><br>Não tem conta? <a href="{{url_for('.regist')}}" style="color:rgb(74,179,255);">Crie uma!</a></p>    
-        </form>
+        <div style="display: inline;"></div>
+            <div class="login-box">
+                <h2 style="text-align: center; margin-top: -5%;">Login</h2>
+                <img src="../css/images/perfil.png" class="image-center" style="width: 40px; text-align: center; position: relative;"/>
+                <form method="post">
+                    <input type="text" placeholder="Username" name="username" id="user" >
+                    <input type="password" placeholder="Password" name="password" id="password">
+                    <input type="submit" id="login-btn" value="Login" style="width: 200px; background-color: rgb(71, 129, 255); border-radius: 50px; margin-left: 34% ; " >
+                    
+                    <p style="text-align: center;"><br><br>Não tem conta? <a href="{{url_for('.regist')}}" style="color:rgb(74,179,255);">Crie uma!</a></p>    
+                </form>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Square_-_black_simple.svg/220px-Square_-_black_simple.svg.png" style="margin-left: 120%; transform: translateY(-150%);"/>
+
+            </div>
+            <div >
+            </div>
         </div>
-    
     <div class="center">
-        <div class="bolaperf"></div>
-        <div class="fperfil"></div>        
+              
     </div>
     
 

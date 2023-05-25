@@ -5,34 +5,55 @@
     <link href="../css/main.css" rel="stylesheet" />
     <script src="../css/js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <style>
+        .column1 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 40%;
+    
+}
+    </style>
 </head>
 <body>
-    <div class="background-layer"></div>
+
     <div class="guideme" > 
         <h1>Serviços</h1>
 
     </div>
     <div class="navbar">
-        <a href="{{url_for('.login')}}">Inicio</a>
-        <a>Pão</a>
-        <a>Sobre</a>
-        <a>Sim</a>
+       
+        <h1 style="width: 100%; height: auto;">GuideMeUp</h1>
+        <a href="{{url_for('.login')}}"style="color: black;">Inicio</a>
+        <a href="#" style="color: black;">Catálogo</a>
+        <a href="#" style="color: black;">Conta</a>
+        <a href="#" style="color: black;">Sobre</a>
     </div>
-    <div class="serviços-box-placeholder">  
+    <div class="serviços-box-placeholder" style="background-color: transparent;"></div>  
             <div class="clearfix">
-                <div class="column" style="border-radius: 50%;">
+                <div class="column1" style="border-radius: 50%;">
                     
                     <button class="serviços-button"><a href="{{url_for('.escolhas')}}">Pintura</a></button>
                     <button class="serviços-button">Limpeza</button>
+                    
+                </div>
+                <div class="column1" style="border-radius: 50%;">
+                    
                     <button class="serviços-button">Canalização</button>
                     <button class="serviços-button">Eletricidade</button>
                 </div>
-                <div class="column" style="border-radius: 50%;">
+                <div class="column1" style="border-radius: 50%;">
                     <button class="serviços-button">Carpintaria</button>
                     <button class="serviços-button">Serralharia</button>
-                    <button class="serviços-button">Jardinagem</button>
-                    <button class="serviços-button">Outros</button>
+                    
             </div>
+            <div class="column1" style="border-radius: 50%;">
+                
+                <button class="serviços-button">Jardinagem</button>
+                <button class="serviços-button">Outros</button>
+        </div>
         </div>
     </div>
    
