@@ -3,7 +3,7 @@
 <head>
     <title>GuideMeUp</title>
     <link href="../css/main.css" rel="stylesheet" />
-    <link href="../js/main.js" rel="stylesheet" />
+    <script src="../css/js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 <body>
@@ -15,12 +15,14 @@
     </div>
     <div class="login-container">
         <div class="register-box" style="transition: cubic-bezier(0.47, 0, 0.745, 0.715);">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Confirma a Password">
-            <input type="tel" placeholder="Telemóvel">
-            <input type="date"placeholder="Data">
-            <button id="login-btn"><a href="{{url_for('.login')}}"> Registar</a></button>
+            <form method="post">
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
+                <input type="password" placeholder="Confirma a Password" name="conf">
+                <input type="tel" placeholder="Telemóvel" name="tel">
+                <input type="date"placeholder="Data" name="date">
+                <input type="submit" id="login-btn" value="regist" style="width: 200px; background-color: rgb(71, 129, 255); border-radius: 50px; margin-left: 12% ; " >
+            </form>
         </div>
         
         
