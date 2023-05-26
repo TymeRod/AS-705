@@ -5,60 +5,175 @@
     <link href="../css/main.css" rel="stylesheet" />
     <script src="../css/js/main.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/56b0a879ad.js" crossorigin="anonymous"></script>
+ 
     <style>
-        .design-esquerda{
-            width: 20%;
-            
-            
-            display: inline;
-            background-color: aquamarine;
-            text-align: center;
-            font-size: 20px;
-            border-radius: 50px;
-            margin-top: 20%;
-            margin-left: 10%;
-            left: 10%;
-            max-width: 30%;
-        }
-        .design-direita{
-            width: 20%;    
-            display: inline;        
-            position: relative;
-            background-color: aquamarine;
-            text-align: center;
-            font-size: 20px;
-            border-radius: 50px;
-            margin-top: 20%;
-            left: 50%;
-            margin-right: 10%;
-        }
-       
-        
+        @import 'https://fonts.googleapis.com/css?family=Lato:400,600,700&subset=latin-ext';
+        body {
+  background: #ececec;
+  font-family: 'Lato';
+  padding: 10px 0;
+  margin: 0;
+  font-size: 14px;
+  overflow-x: hidden;
+  min-width: 345px;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+h1 {
+  text-align: center;
+}
+form {
+  max-width: 768px;
+  display: block;
+  background: #162E3F;
+  padding: 25px;
+  margin: 40px auto;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  color: #fff;
+}
+fieldset {
+  border: none;
+  margin: 10px auto;
+}
+  legend {
+    margin: 30px 0 0;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+.double-input {
+  margin: 20px auto;
+  & > div {
+    float: left;
+    width: 48%;
+    margin-bottom: 10px;
+    margin: 0 1% 10px;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.form-input-container {
+    font-size: 20px;
+}
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  &.date-select select {
+    width: 47%;
+    &:first-of-type {
+      margin-right: 3%;
+    }
+  }
+  select {
+    width: 100%;
+    color: white;
+    background: transparent;
+    border: 1px solid #0a0a0a;
+    padding: 8px;
+    height: 35px;
+  }
+     &:focus {
+      border: 1px solid #000000;
+    }
+    option {
+      color: rgb(0, 0, 0);
+    }
+    
+  input {
+    width: 80%;
+    color: white;
+    padding: 8px;
+    height: 35px;
+    background: transparent;
+    border: 1px solid #a9a9a9;
+  }&:focus {
+      border: 1px solid #f80000;
+    }
+  
+
+button[type="submit"] {
+  height: 50px;
+  width: 300px;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 50px;
+  font-family: 'Lato';
+  box-shadow: 0px 0px 10px #131313;
+  display: block;
+  margin: 0 auto;
+}
+.image-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+    
     </style>
 </head>
 <body>
     <div class="background-layer" style="background-image: url('../css/images/fundo1.png');"></div>
-    <div class="navbar">
-        <a href="#" >Início </a>
-        <a href="#">Catálogo</a>
-        <a href="#" class="active">Conta</a>
-        <a href="#">Sobre</a>
-      </div>
-   
-    <div>
+    <div class="navbar" style="background-color: #0073a1;">
+        <h1 style="width: 100%; height: auto; color:rgb(255, 255, 255) ;;">GuideMeUp</h1>
+        <a href="{{url_for('.account')}}" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-home fa-xs"style="display: inline;"> Inicio</i></a>
+       
+        <a href="#"  style= "border: 1px solid white; border-left: 0;border-right: 0;"> <i class="fa-sharp fa-solid fa-list-check fa-xs" style="display: inline;"> Servicos</i></a>
+        
+        <a href="#" class="active" style=" background-color:#00405a;border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-user fa-xs"style="display: inline;"> Conta</i></a>
+       
 
-        <div class="design-esquerda">
-           esquerda
-        </div>
-        <div class="design-direita">
-            direitxa
-        </div>
+        <a href="#" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class="fa-sharp fa-solid fa-cart-shopping fa-xs" style="display: inline;"> Catalogo</i></a>
+       
+
+        <a href="#" style="border-top:1px solid white ;" > <i class="fas fa-address-card fa-xs" style="display: inline;"> Sobre</i></a>
+        
+        
     </div>
-    <div class="footer">
-        <p>GuideMeUp &copy; 2020</p>
-    </div>
- 
+    <form>
+      <fieldset>
+        <h1 style="font-size: 60px;color: #fff; margin-top: -2%;">A minha conta</h1><br>
+
+        <label style="font-size: 30px;margin-top:-4%;">Informação pessoal:</label>
+        <div>
+          <div class="form-input-container">
+            <label for="fname" style="padding-top: 10px;">Nome:</label>
+            <input type="text" name="firstname" id="fname"  minlength="3" required/>
+            <label for="lname">Endereço:</label>
+            <input type="text" name="lastname" id="lname"  >
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" >
+            <label for="phone">Telemóvel:</label>
+            <input type="tel" name="phone" id="phone">
+            <label for="phone">Data de nascimento:</label>
+            <input type="tel" name="birth" id="birth"><br><br><br>
+            <label for="fname" style="padding-top: 10px;">Histórico de serviços:</label>
+            <div style="width:100%; height:100px; overflow:auto; margin-top:10px; padding:10px; border:1px solid #ccc;">
+                <!-- Conteúdo da área de histórico aqui -->
+            </div>
+        </div>
+          </div>
+      </fieldset>
+      
+
+
+        
+        
+          
+       
+      <input type="submit" value="Eliminar conta" style="color:rgba(255, 255, 255, 0.7);background-color:rgba(240, 63, 4, 0.825); width: 20%;margin-left: 2%; text-align: center;" onclick="return confirm('Tem a certeza que deseja eliminar a conta?');">
+    </form>
+            
+    
 
     
 </body>
