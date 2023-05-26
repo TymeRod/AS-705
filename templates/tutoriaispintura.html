@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GuideMeUp</title>
+    <link href="../css/main.css" rel="stylesheet" />
+    <script src="../css/js/main.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/56b0a879ad.js" crossorigin="anonymous"></script>
+ 
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Lato:400,600,700&subset=latin-ext';
+        body {
+  background: #ececec;
+  font-family: 'Lato';
+  padding: 10px 0;
+  margin: 0;
+  font-size: 14px;
+  overflow-x: hidden;
+  min-width: 345px;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+h1 {
+  text-align: center;
+}
+form {
+  width: 60%;
+  padding-left: 15%;
+  display: block;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 25px;
+  margin: 40px auto;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  color: #000000;
+}
+fieldset {
+  height: 3500px;
+  border: none;
+  margin: 10px auto;
+  
+}
+
+.btn{
+    background-color: #0073a1;
+    color: white;
+    border-radius: 25px;
+    padding: 10px 10px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    opacity: 0.9;
+}  
+
+.btn:hover {
+    opacity: 1;
+}   
+
+
+    
+    </style>
+</head>
+<body>
+    <div class="background-layer" style="background-image: url('../css/images/comopintarparedes.jpeg');"></div>
+    <div class="navbar" style="background-color: #0073a1;">
+        <h1 style="width: 100%; height: auto; color:rgb(255, 255, 255) ;;">GuideMeUp</h1>
+        <a href="{{url_for('.account')}}" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-home fa-xs"style="display: inline;"> Inicio</i></a>
+       
+        <a href="{{url_for('.account')}}"  style= "border: 1px solid white; border-left: 0;border-right: 0;"> <i class="fa-sharp fa-solid fa-list-check fa-xs" style="display: inline;"> Servicos</i></a>
+        
+        <a href="{{url_for('.account')}}"  style=" border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-user fa-xs"style="display: inline;"> Conta</i></a>
+       
+
+        <a href="{{url_for('.account')}}" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class="fa-sharp fa-solid fa-cart-shopping fa-xs" style="display: inline;"> Catalogo</i></a>
+       
+
+        <a href="{{url_for('.account')}}" style="border-top:1px solid white ;" > <i class="fas fa-address-card fa-xs" style="display: inline;"> Sobre</i></a>
+        
+        
+    </div>
+    
+    <form>
+      <fieldset>
+        <h1 style="font-size: 50px;color: #000000; margin-top: -2%; padding-bottom: 10%;">Tutoriais de pintura</h1><br>
+
+        <h1 style="font-size: 40px;color: #000000;padding-right: 90%; margin-top: -4%;">Interior:</h1><br>
+        <iframe style="margin-left: 12%;" width="800" height="415" src="https://www.youtube.com/embed/iaV7iwItVSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h1 style="font-size: 20px;color: #000000; margin-top: -15%; margin-left: 30%; width: 400px;">Aprenda a pintar o interior de sua casa com a ajuda da nossa especialista, Karla Amadori!</h1><br>
+        <iframe style= "margin-left: 12%;margin-top: 10%;"width="800" height="415" src="https://www.youtube.com/embed/vOtVMHHhf4s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            
+        <h1 style="font-size: 20px;color: #000000; margin-top: 5%; margin-left: 30%; width: 400px;">Aprenda a pintar o interior da sua casa com a ajuda da nossa especialista, Ana Maria!</h1><br>
+
+        <h1 style="font-size: 40px;color: #000000;padding-right: 90%; margin-top: 15%;">Exterior:</h1><br>
+        <iframe style= "margin-left: 12%;margin-top: 10%;" width="800" height="415" src="https://www.youtube.com/embed/hipr6m9dkRA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <h1 style="font-size: 20px;color: #000000; margin-top: 5%; margin-left: 30%; width: 400px;">Aprenda a pintar o exterior de sua casa com a ajuda do nosso especialista, Roberto!</h1><br>
+        <iframe style= "margin-left: 12%;margin-top: 10%;" width="800" height="415" src="https://www.youtube.com/embed/ncMn5T753to" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <h1 style="font-size: 20px;color: #000000; margin-top: 5%; margin-left: 30%; width: 450px;">A sua parede exterior está a descascar? Aprenda como repintá-la com o Ricardo e a Sandra!</h1><br>
+        <h1 style="font-size: 20px;color: #000000; margin-top: 30%; margin-left: 30%; width: 450px;">Ainda precisa de ajuda? Pode sempre chamar um dos nossos especialistas.</h1><br>
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <input class="btn" type="button" value="Chamar especialista" style="font-size: 20px; padding: 10px 20px;margin-top: -1%;">
+        </div>
+    </fieldset>
+
+
+
+        
+        
+          
+       
+    </form>
+            
+    
+
+    
+</body>
+</html>
