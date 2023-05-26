@@ -199,11 +199,12 @@
         
 </head>
 <body>
-    <div class="background-layer" style="background-image: url('../css/images/FundoTeste.png')"></div>
+    <div class="background-layer" style="background-image: url(https://media.discordapp.net/attachments/1075358829186908230/1111436172477091950/pagamento2.jpg?width=966&height=643)"></div>
     <div class="navbar" style="background-color: transparent; color: white;">
-        <h1 style="width: 100%; height: auto;">GuideMeUp</h1>
+        <h1 style="width: 100%; height: auto;margin-left: 5% ;">GuideMeUp</h1>
         <a href="#" >Início </a>
         <a href="#" >Catálogo</a>
+        <a href="#" >Serviços</a>
         <a href="#" >Conta</a>
         <a href="#" >Sobre</a>
       </div>
@@ -214,21 +215,9 @@
                 <div class="product-list">
                     
                     <ul>
-                        <li>Produto 1</li>
-                        <li>Produto 2</li>
-                        <li>Produto 3</li>
-                        <li>Produto 4</li>
-                        <li>Produto 5</li>
-                        <li>Produto 6</li>
-                        <li>Produto 7</li>
-                        <li>Produto 8</li>
-                        <li>Produto 9</li>
-                        <li>Produto 10</li>
-                        <li>Produto 11</li>
-                        <li>Produto 12</li>
-                        <li>Produto 13</li>
-                        <li>Produto 14</li>
-                        <li>Produto 15</li>
+                        {% for v in prod %}
+                            <li>{{ v }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
                
@@ -266,7 +255,7 @@
             </div>
             <div class="total-amount">
                 <h3>Valor total a pagar:</h3>
-                <p>100,00€</p>
+                <p>{{conta}}€</p>
                 <input type="submit" class="button" style="width: 100%; margin-top: 30px; border-radius: 50px;" value="Realizar pagamento">
             </div>
 

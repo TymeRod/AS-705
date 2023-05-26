@@ -8,9 +8,27 @@ from PIL import Image, ImageDraw, ImageFont
 
 app = Flask(__name__, static_folder='css')
 
-compra = []
+
+tintaAcril = 13.49
+ta = 0
+tinta = 11.99
+t = 0
+pincel = 5.49
+p = 0
+rolo = 7.99
+r = 0
+tintaExtInt = 25.89
+tei = 0
+
+compra = dict()
+preço = {'Tinta acrílica mate 5L': tintaAcril, 
+         'Tinta mate exterior BRANCO 4L': tinta,
+          'Pincel  UNIVERSAL PP 60MM': pincel, 
+          'Rolo Antigota Poliamida': rolo,
+          'Tinta anti-mofo 5 L, branco': tintaExtInt}
 
 def draw():
+    num = 0
     # Open the image
     image = Image.open('./css/images/carrinho.png')
 
@@ -27,7 +45,12 @@ def draw():
     font = ImageFont.truetype('Arial.ttf', size=25)
 
     # Draw the number inside the circle
-    number = len(compra)
+
+    for i in compra:
+        for j in range(compra[i]):
+            num += 1
+
+    number = num
     text_width, text_height = draw.textsize(str(number), font=font)
     draw.text((x-text_width/2, y-text_height/2), str(number), fill='white',font=font)
 
@@ -36,7 +59,7 @@ def draw():
 
 
 @app.route('/', methods=['POST', 'GET'])
-def inicio():
+def inicio1():
     return render_template('index.html')
 
 @app.route('/index/')
@@ -98,6 +121,9 @@ def logout():
 def serviços():
     return render_template('serviços.html')
 
+@app.route('/inicio/')
+def inicio():
+    return redirect('/')
 
 
 @app.route('/escolhas/', methods=['GET', 'POST'])
@@ -136,26 +162,57 @@ def catalogo():
     if request.method == 'POST':
         if 'carrinho' in request.form:
             return redirect('/pagamento/')
+        
         if 'tintaAcril' in request.form:
-            compra.append('Tinta mate exterior BRANCO 5L')
+            global ta
+            ta = ta + 1
+            compra['Tinta acrílica mate 5L'] = int(ta)
+            draw()
+
         if 'tinta' in request.form:
-            compra.append('Tinta mate exterior BRANCO 4L')
+            global t
+            t = t + 1
+            compra['Tinta mate exterior BRANCO 4L'] = int(t)
+            draw()
+
         if 'pincel' in request.form:
-            compra.append('Pincel  UNIVERSAL PP 60MM')
+            global p
+            p = p + 1
+            compra['Pincel  UNIVERSAL PP 60MM'] = int(p)
+            draw()
+
         if 'rolo' in request.form:
-            compra.append('Rolo Antigota Poliamida')
+            global r
+            r = r + 1
+            compra['Rolo Antigota Poliamida'] = int(r)
+            draw()
+
         if 'tintaExtInt' in request.form:
-            compra.append('Tinta anti-mofo 5 L, branco')
-    return render_template('catalogo.html')
+            global tei
+            tei = tei + 1
+            compra['Tinta anti-mofo 5 L, branco'] = int(tei)
+            draw()
 
-def add_carrinho():
-    ...
-
+    return render_template('catalogo.html', tintaAcril=tintaAcril, 
+                           tinta = tinta, pincel = pincel, 
+                           rolo = rolo, tintaExtInt = tintaExtInt
+                           )
 
 
 @app.route('/pagamento/', methods=['GET', 'POST'])
 def pagamento():
-    return render_template('pagamento.html', compra=compra)
+    conta = 0
+    prod = []
+    for i in compra:
+        conta += preço[i]*compra[i]
+
+    for i in compra:
+        for j in range(int(compra[i])):
+            prod.append(i)
+
+    print(prod)
+
+    return render_template('pagamento.html', conta=conta, prod = prod)
 
 if __name__ == '__main__':
     app.run(debug=True)

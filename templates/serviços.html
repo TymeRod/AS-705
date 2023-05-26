@@ -2,13 +2,14 @@
 <html lang="pt-pt">
 <head>
     <title>GuideMeUp</title>
+    <meta charset="utf-8" />
     <link href="../css/main.css" rel="stylesheet" />
     <script src="../css/js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
+    <script src="https://kit.fontawesome.com/56b0a879ad.js" crossorigin="anonymous"></script>
     <style>
         body{
-            background-color: rgb(210, 209, 209);
+            background-color: rgb(255, 255, 255);
         }
         .container {
             display: flex;
@@ -23,22 +24,31 @@
             margin-top: -5%;
             
         }
+        
     </style>
 </head>
 <body>
 
     <div class="guideme1" style="padding-bottom: 200%;" > 
-        <h1 style="margin-left: 10% ;">Serviços</h1>
-        <h5 style="width: 600px; margin-top: -20%;font-size:30px;padding-left: 5%;">Escolha a opção mais adequada para si:</h5>
+        <h1 style="margin-left: 10% ;color:black;">Serviços</h1>
+        <h5 style="width: 600px; margin-top: -20%;font-size:30px;padding-left: 5%;color: #000;">Escolha a opção mais adequada para si:</h5>
     </div>
-   
 
-    <div class="navbar">
-        <h1 style="width: 100%; height: auto; color:rgb(255, 255, 255) ;margin-left :3%;">GuideMeUp</h1>
-        <a href="{{url_for('.login')}}">Inicio</a>
-        <a href="#" >Catálogo</a>
-        <a href="#" >Conta</a>
-        <a href="#" >Sobre</a>
+    <div class="navbar" style="background-color: #0073a1;">
+        <h1 style="width: 100%; height: auto; color:rgb(255, 255, 255) ;margin-left :7%;">GuideMeUp</h1>
+        <a href="{{url_for('.login')}}" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-home fa-xs"style="display: inline;"> Inicio</i></a>
+       
+        <a href="#" class="active" style="background-color: #00405a; border: 1px solid white; border-left: 0;border-right: 0;"> <i class="fa-sharp fa-solid fa-list-check fa-xs" style="display: inline;"> Servicos</i></a>
+        
+        <a href="#" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-user fa-xs"style="display: inline;"> Conta</i></a>
+       
+
+        <a href="#" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class="fa-sharp fa-solid fa-cart-shopping fa-xs" style="display: inline;"> Catalogo</i></a>
+       
+
+        <a href="#" style="border-top:1px solid white ;" > <i class="fas fa-address-card fa-xs" style="display: inline;"> Sobre</i></a>
+        
+        
     </div>
     
     <div class="container">
@@ -62,5 +72,4 @@
             <button class="serviços-button" style="background-image: url('../css/images/cuidador1.jpg');"><span>Assistência</span></button>
         </div>
     </div>
-</body>
 </html>
