@@ -217,6 +217,18 @@ def pagamento():
     return render_template('pagamento.html', conta=conta, prod = prod)
 
 
+@app.route('/account/', methods=['GET', 'POST'])
+def account():
+    return render_template('account.html')
+
+
+@app.route('/cenas/', methods=['GET', 'POST'])
+def cenas():
+    a = 'ola'
+    b = 'teste'
+    return render_template('cenas.html', a=a, b=b)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -47,5 +47,14 @@ def delete_user(email):
     cur.execute('DELETE FROM users WHERE email=?', (email,))
     con.commit()
 
+def get_user_info(email):
+    ...
+
+def update_user(email, password, tel, date):
+    cur = con.cursor()
+    cur.execute('UPDATE users SET password=?, tel=?, date=? WHERE email=?', (password, tel, date, email))
+    con.commit()
+
+
 all_users()
 
