@@ -358,11 +358,11 @@ a:visited {
     cursor : pointer;
 }
 
-.serviços-button span {
+/* .serviços-button span {
     position: relative;
     z-index: 1;
     cursor: pointer;
-}
+} */
 
 .serviços-button::after {
     content: '';
