@@ -4,20 +4,28 @@
     <title>GuideMeUp</title>
     <link href="../css/main.css" rel="stylesheet" />
     <script src="../css/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/56b0a879ad.js" crossorigin="anonymous"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <style>
         form{
-            width: 20% auto;
-            margin: 0 auto;
-            
-            background-color: #f3f3f3;
+            width: 700px;
+            background-color: #e2e1e1;
             display:block ;
             display: inline-block;
             text-align: center;
-            border-radius: 50px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 25px;
             font-size: 25px;
+            margin: 40px auto;
+            box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+            color: #000000;
+            margin-top: -9%;
         }
+        fieldset {
+            border: none;
+            margin: 10px auto;
+    }   
         input{
             width: 40px;
             height: 40px;
@@ -28,12 +36,29 @@
     </style>
 </head>
 <body>
-    <div class="background-layer"></div>
-    <div class="guideme" style="height: 90px auto;"><h1>GuideMeUp  </h1> </div>
+    <div class="background-layer" style="background-image: url('../css/images/especificaçoes.jpg');"></div>
+    <div class="navbar" style="background-color: #0073a1;">
+        <h1 style="width: 100%; height: auto; color:rgb(255, 255, 255) ;;">GuideMeUp</h1>
+        <a href="{{url_for('.account')}}" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-home fa-xs"style="display: inline;"> Inicio</i></a>
+       
+        <a href="#"  style= "border: 1px solid white; border-left: 0;border-right: 0;"> <i class="fa-sharp fa-solid fa-list-check fa-xs" style="display: inline;"> Servicos</i></a>
+        
+        <a href="#" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-user fa-xs"style="display: inline;"> Conta</i></a>
+       
 
+        <a href="#" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class="fa-sharp fa-solid fa-cart-shopping fa-xs" style="display: inline;"> Catalogo</i></a>
+       
+
+        <a href="#" style="border-top:1px solid white ;" > <i class="fas fa-address-card fa-xs" style="display: inline;"> Sobre</i></a>
+        
+        
+    </div>
+    <fieldset>
     <div class="center" style="text-align: center;font-size: 30px;top: 50%;">
        <form id="checkboxForm" method="post">
-            <h3 >Escolha as especificações do serviço<br></h3>
+            <h1 style="font-size: 60px;color: #000000;">Pintura</h1><br>
+
+            <h3 style="margin-top: -4%;">Escolha as especificações do serviço<br></h3>
             <div> <b>Tipo de pintura: </b> </div><br>
             
             <input type="radio"  name="option1" value="1" required> Exterior
@@ -49,6 +74,7 @@
 
         </form> 
     </div>
+    </fieldset>
     
 
     
