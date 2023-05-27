@@ -23,9 +23,11 @@ tei = 0
 compra = dict()
 preço = {'Tinta acrílica mate 5L': tintaAcril, 
          'Tinta mate exterior BRANCO 4L': tinta,
-          'Pincel  UNIVERSAL PP 60MM': pincel, 
-          'Rolo Antigota Poliamida': rolo,
-          'Tinta anti-mofo 5 L, branco': tintaExtInt}
+         'Pincel  UNIVERSAL PP 60MM': pincel, 
+         'Rolo Antigota Poliamida': rolo,
+         'Tinta anti-mofo 5 L, branco': tintaExtInt}
+
+
 
 def draw():
     num = 0
@@ -157,10 +159,17 @@ def check():
         return redirect('/pagamento/')
 
 @app.route('/catalogo/', methods=['GET', 'POST'])
+def catalogo():
+    return render_template('catalogo.html', tintaAcril=tintaAcril, 
+                           tinta = tinta, pincel = pincel, 
+                           rolo = rolo, tintaExtInt = tintaExtInt)
 
+@app.route('/catalogo_post', methods=['GET', 'POST'])
 def catalogo_post():
     draw()
     if request.method == 'POST':
+        print("AAAAAAAAAAAAAA")
+        print(request.form)
         if 'carrinho' in request.form:
             return redirect('/pagamento/')
 
@@ -169,7 +178,7 @@ def catalogo_post():
             ta = ta + 1
             compra['Tinta acrílica mate 5L'] = int(ta)
             draw()
-
+            
         if 'tinta' in request.form:
             global t
             t = t + 1
@@ -193,12 +202,9 @@ def catalogo_post():
             tei = tei + 1
             compra['Tinta anti-mofo 5 L, branco'] = int(tei)
             draw()
-
-    return render_template('catalogo.html', tintaAcril=tintaAcril, 
-                           tinta = tinta, pincel = pincel, 
-                           rolo = rolo, tintaExtInt = tintaExtInt
-                           )
-
+            
+    return redirect('/catalogo/')
+    
 
 @app.route('/pagamento/', methods=['GET', 'POST'])
 def pagamento():
