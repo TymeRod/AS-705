@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GuideMeUp</title>
+    <link href="../css/main.css" rel="stylesheet" />
+    <script src="../css/js/main.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/56b0a879ad.js" crossorigin="anonymous"></script>
+ 
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Lato:400,600,700&subset=latin-ext';
+        body {
+  background: #ececec;
+  font-family: 'Lato';
+  padding: 10px 0;
+  margin: 0;
+  font-size: 14px;
+  overflow-x: hidden;
+  min-width: 345px;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+h1 {
+  text-align: center;
+}
+form {
+  max-width: 768px;
+  display: block;
+  background: #e2e1e1;;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 40px auto;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  color: #000000;
+}
+fieldset {
+  border: none;
+  margin: 10px auto;
+}
+  legend {
+    margin: 30px 0 0;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+.double-input {
+  margin: 20px auto;
+  & > div {
+    float: left;
+    width: 48%;
+    margin-bottom: 10px;
+    margin: 0 1% 10px;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.form-input-container {
+    font-size: 20px;
+}
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  &.date-select select {
+    width: 47%;
+    &:first-of-type {
+      margin-right: 3%;
+    }
+  }
+  select {
+    width: 100%;
+    color: white;
+    background: transparent;
+    border: 1px solid #0a0a0a;
+    padding: 8px;
+    height: 35px;
+  }
+     &:focus {
+      border: 1px solid #000000;
+    }
+    option {
+      color: rgb(0, 0, 0);
+    }
+    
+  input {
+    width: 80%;
+    color: rgb(0, 0, 0);
+    padding: 8px;
+    height: 35px;
+    background: transparent;
+    border: 1px solid #a9a9a9;
+  }&:focus {
+      border: 1px solid #f80000;
+    }
+  
+
+    button {
+  font-family: inherit;
+  width: 100%;
+  margin-top: 3%;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+  color: white;
+  padding: 0.8em 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
+}
+
+button svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: all 0.3s;
+}
+
+button .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 0.5em;
+  transition: all 0.3s;
+}
+
+button:hover .svg-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+button:hover svg {
+  transform: rotate(45deg);
+}
+
+.image-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bckgrnd {
+  background-color: #e9e9e9;
+  border-radius: 10px;
+}
+
+    
+    </style>
+</head>
+<body>
+    <div class="background-layer" style="background-image: url('../css/images/admin-ajax.webp');"></div>
+    <div class="navbar" style="background-color: #0073a1;">
+        <h1 style="width: 100%; height: auto; color:rgb(255, 255, 255) ;;">GuideMeUp</h1>
+        <a href="{{url_for('.account')}}" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-home fa-xs"style="display: inline;"> Inicio</i></a>
+       
+        <a href="#"  style= "border: 1px solid white; border-left: 0;border-right: 0;"> <i class="fa-sharp fa-solid fa-list-check fa-xs" style="display: inline;"> Servicos</i></a>
+        
+        <a href="#" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-user fa-xs"style="display: inline;"> Conta</i></a>
+       
+
+        <a href="#" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class="fa-sharp fa-solid fa-cart-shopping fa-xs" style="display: inline;"> Catalogo</i></a>
+       
+
+        <a href="#" style="border-top:1px solid white ;" > <i class="fas fa-address-card fa-xs" style="display: inline;"> Sobre</i></a>
+        
+        
+    </div>
+    <form>
+      <fieldset>
+        <!DOCTYPE html>
+<html>
+<body>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+  <h1 style="font-size: 50px;color: #000000; margin-top: -2%;">Trabalhe conncosco!</h1><br>
+  <h2 style="font-size: 15px;color: #000000; margin-top: -2%;margin-left: 0%;">Envie um ficheiro pdf com o seu cartão de cidadão e currículo e diga-nos algo sobre sí.</h2><br>
+
+
+  <label for="file">Selecione um ficheiro PDF:</label>
+  <input style="height: 150px; border-radius: 15px;width: 100%;"type="file" id="file" name="file" accept=".pdf">
+  <label style="margin-top: 3%;"for="text_input">Digite algo sobre sí:</label>
+  <input style="border-radius: 15px;height: 50px; width: 100%;"type="text" id="text_input" name="text_input">
+  <button>
+    <div class="svg-wrapper-1">
+      <div class="svg-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+        </svg>
+      </div>
+    </div>
+    <span>Enviar</span>
+  </button>  
+</form>
+
+    
+</body>
+</html>

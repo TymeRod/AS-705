@@ -30,11 +30,12 @@ h1 {
 form {
   max-width: 768px;
   display: block;
-  background: #162E3F;
+  background: #e2e1e1;;
+  border-radius: 20px;
   padding: 25px;
   margin: 40px auto;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  color: #fff;
+  color: #000000;
 }
 fieldset {
   border: none;
@@ -90,7 +91,7 @@ fieldset {
     
   input {
     width: 80%;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 8px;
     height: 35px;
     background: transparent;
@@ -103,7 +104,7 @@ fieldset {
 button[type="submit"] {
   height: 50px;
   width: 300px;
-  background: #ffffff;
+  background: #9e9e9e;
   border: none;
   cursor: pointer;
   font-size: 20px;
@@ -117,6 +118,11 @@ button[type="submit"] {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.bckgrnd {
+  background-color: #e9e9e9;
+  border-radius: 10px;
 }
     
     </style>
@@ -141,24 +147,26 @@ button[type="submit"] {
     </div>
     <form>
       <fieldset>
-        <h1 style="font-size: 60px;color: #fff; margin-top: -2%;">A minha conta</h1><br>
+        <h1 style="font-size: 60px;color: #000000; margin-top: -2%;">A minha conta</h1><br>
 
         <label style="font-size: 30px;margin-top:-4%;">Informação pessoal:</label>
         <div>
           <div class="form-input-container">
             <label for="fname" style="padding-top: 10px;">Nome:</label>
-            <input type="text" name="firstname" id="fname"  minlength="3" required/>
+            <input class="bckgrnd" type="text" name="firstname" id="fname"  minlength="3" required/>
             <label for="lname">Endereço:</label>
-            <input type="text" name="lastname" id="lname"  >
+            <input class="bckgrnd"type="text" name="lastname" id="lname"  >
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" >
+            <input class="bckgrnd"type="email" name="email" id="email" >
             <label for="phone">Telemóvel:</label>
-            <input type="tel" name="phone" id="phone">
+            <input class="bckgrnd"type="tel" name="phone" id="phone">
             <label for="phone">Data de nascimento:</label>
-            <input type="tel" name="birth" id="birth"><br><br><br>
-            <label for="fname" style="padding-top: 10px;">Histórico de serviços:</label>
-            <div style="width:100%; height:100px; overflow:auto; margin-top:10px; padding:10px; border:1px solid #ccc;">
+            <input class="bckgrnd"type="tel" name="birth" id="birth"><br><br><br>
+            <label for="fname" style="margin-top: -4%;">Histórico de serviços:</label>
+            <div class="bckgrnd" style="width:100%; height:200px; overflow:auto; padding:10px; border:1px solid #ccc;">
                 <!-- Conteúdo da área de histórico aqui -->
+                <h1>Hello</h1><br><br><br><br>
+                <h1>Hello</h1><br><br><br><br>
             </div>
         </div>
           </div>
