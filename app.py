@@ -119,9 +119,40 @@ def logout():
     resp.delete_cookie('email')
     return resp
 
-@app.route('/serviços/')
-def serviços():
-    return render_template('serviços.html')
+@app.route('/servicos/', methods=['POST', 'GET'])
+def servicos():
+    return render_template('servicos.html')
+
+@app.route('/servicos_post', methods=['POST', 'GET'])
+def servicos_post():
+    print('AAAAAAAAAAAAAa')
+    if request.method == 'POST':
+        print(request.form)
+        if 'pintura' in request.form:
+            return redirect('/escolhas/')
+        
+        if 'limpeza' in request.form:
+            return redirect('/escolhas/')
+        
+        if 'eletricidade' in request.form:
+            return redirect('/escolhas/')
+        
+        if 'canalizacao' in request.form:
+            return redirect('/escolhas/')
+        
+        if 'carpintaria' in request.form:
+            return redirect('/escolhas/')
+        
+        if 'serralheria' in request.form:
+            return redirect('/escolhas/')
+        
+        if 'Jardinagem' in request.form:
+            return redirect('/escolhas/')
+        
+        if 'Assistência' in request.form:
+            return redirect('/escolhas/')
+            
+    return redirect('/servicos/')
 
 @app.route('/inicio/')
 def inicio():
