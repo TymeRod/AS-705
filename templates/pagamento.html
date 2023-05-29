@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
     <script>
       $(function() {
         $("#datacartao").datepicker({
@@ -191,7 +193,32 @@
             
         }
 
-        
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    /* ===== Colors ===== */
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+::selection{
+    color: #fff;
+}
+
 
     </style>
     
@@ -200,14 +227,99 @@
 </head>
 <body>
     <div class="background-layer" style="background-image: url(https://media.discordapp.net/attachments/1075358829186908230/1111436172477091950/pagamento2.jpg?width=966&height=643)"></div>
-    <div class="navbar" style="background-color: transparent; color: white;">
-        <h1 style="width: 100%; height: auto;margin-left: 5% ;">GuideMeUp</h1>
-        <a href="#" >Início </a>
-        <a href="#" >Catálogo</a>
-        <a href="#" >Serviços</a>
-        <a href="#" >Conta</a>
-        <a href="#" >Sobre</a>
-      </div>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <span class="text2">GMU</span>
+                </span>
+
+                <div class="text logo-text">
+                    
+                    <span class="name" style="font-size: 28px; margin-left: -23%;margin-top: 8%;">GuideMeUp</span>
+                    <span class="profession" style = "margin-left: -23%;">Serviços domésticos</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box" style="height: 0px;"></li> <!--nao apagar-->
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="{{url_for('.index')}}">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Inicio</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{{url_for('.serviços')}}">
+                            <i class='bx bx-list-ul icon' ></i>
+                            <span class="text nav-text">Serviços</span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-link">
+                        <a href="{{url_for('.catalogo')}}">
+                            <i class='bx bx-grid-alt icon' ></i>
+                            <span class="text nav-text">Catálogo</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{{url_for('.pagamento')}}">
+                            <i class='bx bx-cart icon' ></i>
+                            <span class="text nav-text">Carrinho</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{url_for('.account')}}">
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Conta</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{url_for('.')}}">
+                            <i class='bx bx-info-circle icon' ></i>
+                            <span class="text nav-text">Sobre</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>
+    <form>
+
     <div class="center" style="text-align: center; font-size: 30px; top: 50%;">
         <form id="checkboxForm" method="post" style="width: 60%;height: 80vh; margin-top: -5%; background-color: rgba(255, 255, 255, 0.815);">
             <div class="column" >
@@ -262,6 +374,34 @@
            
         </form>
     </div>
+    <script>
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
+    </script>
     
         
 </body>

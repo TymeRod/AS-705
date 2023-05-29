@@ -8,7 +8,6 @@
     <link href="../css/main.css" rel="stylesheet" />
 
     <!--navbar-->
-    <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -71,13 +70,13 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <i class='bx bx-building icon'></i>
+                    <span class="text2">GMU</span>
                 </span>
 
                 <div class="text logo-text">
                     
-                    <span class="name" style="font-size: 28px;">GuideMeUp</span>
-                    <span class="profession">Serviços domésticos</span>
+                    <span class="name" style="font-size: 28px; margin-left: -23%;margin-top: 8%;">GuideMeUp</span>
+                    <span class="profession" style = "margin-left: -23%;">Serviços domésticos</span>
                 </div>
             </div>
 
@@ -91,14 +90,14 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{url_for('.index')}}">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Inicio</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{url_for('.serviços')}}">
                             <i class='bx bx-list-ul icon' ></i>
                             <span class="text nav-text">Serviços</span>
                         </a>
@@ -106,26 +105,26 @@
 
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{url_for('.catalogo')}}">
                             <i class='bx bx-grid-alt icon' ></i>
                             <span class="text nav-text">Catálogo</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{url_for('.pagamento')}}">
                             <i class='bx bx-cart icon' ></i>
                             <span class="text nav-text">Carrinho</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{url_for('.account')}}">
                             <i class='bx bx-user icon'></i>
                             <span class="text nav-text">Conta</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{url_for('.')}}">
                             <i class='bx bx-info-circle icon' ></i>
                             <span class="text nav-text">Sobre</span>
                         </a>
