@@ -5,6 +5,7 @@
     <link href="../css/main.css" rel="stylesheet" />
     <script src="../css/js/main.js"></script>
     <script src="https://kit.fontawesome.com/56b0a879ad.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <style>
@@ -33,26 +34,130 @@
             display: inline-block;
             
         }
+
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    /* ===== Colors ===== */
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+::selection{
+    color: #fff;
+}
+
     </style>
 </head>
 <body>
     <div class="background-layer" style="background-image: url('../css/images/especificaçoes.jpg');"></div>
-    <div class="navbar" style="background-color: #0073a1;">
-        <h1 style="width: 100%; height: auto; color:rgb(255, 255, 255) ;;">GuideMeUp</h1>
-        <a href="{{url_for('.account')}}" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-home fa-xs"style="display: inline;"> Inicio</i></a>
-       
-        <a href="#"  style= "border: 1px solid white; border-left: 0;border-right: 0;"> <i class="fa-sharp fa-solid fa-list-check fa-xs" style="display: inline;"> Servicos</i></a>
-        
-        <a href="#" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class ="fa-sharp fa-solid fa-user fa-xs"style="display: inline;"> Conta</i></a>
-       
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <span class="text2">GMU</span>
+                </span>
 
-        <a href="#" style="border: 1px solid white; border-left: 0;border-right: 0;" > <i class="fa-sharp fa-solid fa-cart-shopping fa-xs" style="display: inline;"> Catalogo</i></a>
-       
+                <div class="text logo-text">
+                    
+                    <span class="name" style="font-size: 28px; margin-left: -23%;margin-top: 8%;">GuideMeUp</span>
+                    <span class="profession" style = "margin-left: -23%;">Serviços domésticos</span>
+                </div>
+            </div>
 
-        <a href="#" style="border-top:1px solid white ;" > <i class="fas fa-address-card fa-xs" style="display: inline;"> Sobre</i></a>
-        
-        
-    </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box" style="height: 0px;"></li> <!--nao apagar-->
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="{{url_for('.index')}}">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Inicio</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{{url_for('.serviços')}}">
+                            <i class='bx bx-list-ul icon' ></i>
+                            <span class="text nav-text">Serviços</span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-link">
+                        <a href="{{url_for('.catalogo')}}">
+                            <i class='bx bx-grid-alt icon' ></i>
+                            <span class="text nav-text">Catálogo</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{{url_for('.pagamento')}}">
+                            <i class='bx bx-cart icon' ></i>
+                            <span class="text nav-text">Carrinho</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{url_for('.account')}}">
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Conta</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{url_for('.')}}">
+                            <i class='bx bx-info-circle icon' ></i>
+                            <span class="text nav-text">Sobre</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>
+    <form>
+
     <fieldset>
     <div class="center" style="text-align: center;font-size: 30px;top: 50%;">
        <form id="checkboxForm" method="post">
@@ -75,7 +180,34 @@
         </form> 
     </div>
     </fieldset>
+    <script>
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
     
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
+    </script>
 
     
     
