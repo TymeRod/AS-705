@@ -4,16 +4,16 @@ con = sqlite3.connect('users.db',  check_same_thread=False)
 
 cur = con.cursor()
 
-cur.execute('CREATE TABLE IF NOT EXISTS users (email TEXT, password TEXT, tel INTEGER, date DATE)')
+cur.execute('CREATE TABLE IF NOT EXISTS users (email TEXT, password TEXT, tel INTEGER, date DATE, address TEXT)')
 
-def add_user(email, password, tel, date):
+def add_user(email, password, tel, date, address):
     cur = con.cursor()
     res = cur.execute('SELECT email FROM users').fetchall()
     for i in res:
         if i[0] == email:
             return False
 
-    cur.execute('INSERT INTO users VALUES (?, ?, ?, ?)', (email, password, int(tel), date))
+    cur.execute('INSERT INTO users VALUES (?, ?, ?, ?, ?)', (email, password, int(tel), date, address))
     con.commit()
     return True
 
@@ -50,11 +50,13 @@ def delete_user(email):
 def get_user_info(email):
     ...
 
-def update_user(email, password, tel, date):
+def update_user(email, password, tel, date, address):
     cur = con.cursor()
-    cur.execute('UPDATE users SET password=?, tel=?, date=? WHERE email=?', (password, tel, date, email))
+    cur.execute('UPDATE users SET password=?, tel=?, date=?, address=? WHERE email=?', (password, tel, date, address, email))
     con.commit()
 
-
-all_users()
+def delete_table():
+    cur = con.cursor()
+    cur.execute('DROP TABLE users')
+    con.commit()
 

@@ -142,13 +142,14 @@ def regist():
         conf_pass = request.form.get('conf')
         tel = request.form.get('tel')
         date_str = request.form.get('date')
+        address = request.form.get('address')
 
             
         if password is not None and email is not None and tel is not None and date_str is not None:
             if password == conf_pass:
                 date = datetime.datetime.strptime(date_str, '%Y-%m-%d').date()
 
-                if DB.add_user(email, hashlib.sha256(password.encode()).hexdigest(), tel, date):
+                if DB.add_user(email, hashlib.sha256(password.encode()).hexdigest(), tel, date, address):
 
                     return redirect('/login')
             else:
@@ -160,8 +161,7 @@ def regist():
 
 @app.route('/logout')
 def logout():
-
-    resp = make_response(redirect('/login'))
+    resp = make_response(redirect('/index'))
     resp.delete_cookie('email')
     return resp
 
@@ -253,12 +253,20 @@ def check():
 
 @app.route('/catalogo/', methods=['GET', 'POST'])
 def catalogo():
+
+    with open('items.json', 'r') as f:
+        data = json.load(f)
+
+    items = data['items']
+
+    # Print the name and price of each item
+    for item in items:
+        print(item['name'], item['price'])
+
     email_cookie = request.cookies.get('email')
     if email_cookie is None:
         return redirect('/login')
-    return render_template('catalogo.html', tintaAcril=tintaAcril, 
-                           tinta = tinta, pincel = pincel, 
-                           rolo = rolo, tintaExtInt = tintaExtInt)
+    return render_template('catalogo.html', item=items)
 
 @app.route('/catalogo_post', methods=['POST', 'GET'])
 def catalogo_post():

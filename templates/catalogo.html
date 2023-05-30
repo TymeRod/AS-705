@@ -196,7 +196,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="/logout">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -232,7 +232,7 @@
                 <div style="left: 50%;"> 
                     <h3> Tinta Acrilica</h3>
                     <h5>(Tinta mate exterior BRANCO 5L)</h5>
-                    <p id="Tinta13"> {{tintaAcril}}€</p>
+                    <p id="Tinta13"> {{item[0]['price']}}€</p>
                     <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaAcril" class="iBut">
                     
@@ -246,7 +246,7 @@
                  <h3> Tinta Acrilica</h3>   
                     <h5>(Tinta mate exterior BRANCO 4L)</h5>
                     
-                    <p id="Tinta11">{{tinta}}€</p>
+                    <p id="Tinta11"> {{item[1]['price']}}€</p>
                     <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tinta" class="iBut">
 
@@ -260,7 +260,7 @@
                     <h3> Pincel</h3>
                     <h5>(Pincel  UNIVERSAL PP 60MM)</h5>
                     
-                       <p id="Pincel5">{{pincel}}€</p> 
+                       <p id="Pincel5"> {{item[2]['price']}}€</p> 
                        <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="pincel" class="iBut">
 
@@ -275,7 +275,7 @@
                     <h3> Rolo</h3>
                     <h5>(Rolo Antigota Poliamida)</h5>
                     
-                        <p id="Rolo7">{{rolo}}€</p>
+                        <p id="Rolo7"> {{item[3]['price']}}€</p>
                         <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="rolo" class="iBut">
 
@@ -289,7 +289,7 @@
                 <h3> Tinta Ext. e Int.</h3>
                    <h5>(Tinta 5L, branco)</h5>
                   
-                   <p id="Tinta25">{{tintaExtInt}}€</p>
+                   <p id="Tinta25"> {{item[4]['price']}}€</p>
                    <br>
                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaExtInt" class="iBut">
 
@@ -310,7 +310,7 @@
                 <div style="left: 50%;"> 
                     <h3> Luvas de Borracha</h3>
                     <h5>(Tinta mate exterior BRANCO 5L)</h5>
-                    <p id="LuvasBorracha"> {{luvas}}€</p>
+                    <p id="LuvasBorracha">  {{item[5]['price']}}€</p>
                     <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaAcril" class="iBut">
                     
@@ -324,7 +324,7 @@
                  <h3> Esfregona</h3>   
                     <h5>(Esfregona natural cinzenta)</h5>
                     
-                    <p id="EsfregaEsfregaDeejayTelio">{{esfrega}}€</p>
+                    <p id="EsfregaEsfregaDeejayTelio">{{item[6]['price']}}€</p>
                     <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tinta" class="iBut">
 
@@ -338,7 +338,7 @@
                     <h3> Lixivia</h3>
                     <h5>(Lixivia limpa casa tradicional  2L)</h5>
                     
-                       <p id="Lixivia">{{lixi}}€</p> 
+                       <p id="Lixivia">{{item[7]['price']}}€</p> 
                        <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="pincel" class="iBut">
 
@@ -353,7 +353,7 @@
                     <h3> Rodo</h3>
                     <h5>(Rodo 40cm com cabo 120-200cm)</h5>
                     
-                        <p id="Rodo">{{rodo}}€</p><!--19,90-->
+                        <p id="Rodo">{{item[8]['price']}}€</p><!--19,90-->
                         <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="rolo" class="iBut">
 
@@ -367,7 +367,7 @@
                 <h3> Vassoura</h3>
                    <h5>(Vassoura com cabo 120cm)</h5>
                   
-                   <p id="Vassoura">{{vass}}€</p>
+                   <p id="Vassoura">{{item[9]['price']}}€</p>
                    <br>
                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaExtInt" class="iBut">
 
@@ -390,7 +390,7 @@
                 <div style="left: 50%;"> 
                     <h3> Chave de fendas</h3>
                     <h5>(Chave de fendas 15mm)</h5>
-                    <p id="ChaveFendas"> {{fendas}}€</p>
+                    <p id="ChaveFendas"> {{item[10]['price']}}€</p>
                     <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaAcril" class="iBut">
                     
@@ -404,7 +404,7 @@
                  <h3> Chave de roquete</h3>   
                     <h5>(Chave de roquete)</h5>
                     
-                    <p id="Roquete">{{roquete}}€</p>
+                    <p id="Roquete">{{item[11]['price']}}€</p>
                     <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tinta" class="iBut">
 
@@ -418,7 +418,7 @@
                     <h3> Desentupidor</h3>
                     <h5>(Desentupidor natural)</h5>
                     
-                       <p id="DesentopeIstoTiago">{{desen}}€</p> 
+                       <p id="DesentopeIstoTiago">{{item[12]['price']}}€</p> 
                        <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="pincel" class="iBut">
 
@@ -433,7 +433,7 @@
                     <h3>Chave de canalizador</h3>
                     <h5>(Chave para concertar canos)</h5>
                     
-                        <p id="ChaveCanaliz">{{rodo}}€</p><!--19,90-->
+                        <p id="ChaveCanaliz">{{item[13]['price']}}€</p><!--19,90-->
                         <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="rolo" class="iBut">
 
@@ -447,7 +447,7 @@
                 <h3>Cinto de ferramentas</h3>
                    <h5>(Cinto versátil e estiloso, para qualquer ferramenta)</h5>
                   
-                   <p id="Belt">{{cinto}}€</p>
+                   <p id="Belt">{{item[14]['price']}}€</p>
                    <br>
                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaExtInt" class="iBut">
 
@@ -467,7 +467,7 @@
                 <div style="left: 50%;"> 
                     <h3>Tabuas de madeira</h3>
                     <h5>(Tabua madeira balsa)</h5>
-                    <p id="MADEIRA"> {{tabua}}€</p>
+                    <p id="MADEIRA"> {{item[15]['price']}}€</p>
                     <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaAcril" class="iBut">
                     
@@ -481,7 +481,7 @@
                  <h3>Serra elétrica</h3>   
                     <h5>(Serra elétrica de 3000W)</h5>
                     
-                    <p id="Serra">{{serra}}€</p>
+                    <p id="Serra">{{item[16]['price']}}€</p>
                     <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tinta" class="iBut">
 
@@ -495,7 +495,7 @@
                     <h3>Lixa para madeira</h3>
                     <h5>(Folha de lixa FLUX)</h5>
                     
-                       <p id="LixaIsto">{{lixa}}€</p> 
+                       <p id="LixaIsto">{{item[17]['price']}}€</p> 
                        <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="pincel" class="iBut">
 
@@ -510,7 +510,7 @@
                     <h3>Martelo</h3>
                     <h5>(Martelo de orelhas 3dm)</h5>
                     
-                        <p id="Martelo">{{martelo}}€</p><!--19,90-->
+                        <p id="Martelo">{{item[18]['price']}}€</p><!--19,90-->
                         <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="rolo" class="iBut">
 
@@ -524,7 +524,7 @@
                 <h3>Nível</h3>
                    <h5>(Nível de 30/50/100cm)</h5>
                   
-                   <p id="Nivel">{{nivel}}€</p>
+                   <p id="Nivel">{{item[19]['price']}}€</p>
                    <br>
                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaExtInt" class="iBut">
 
@@ -544,7 +544,7 @@
                <div style="left: 50%;"> 
                    <h3>Cabos e fios elétricos</h3>
                    <h5>(Cabos elétricos 25m)</h5>
-                   <p id="Tinta13"> {{cabos}}€</p>
+                   <p id="Tinta13"> {{item[20]['price']}}€</p>
                    <br>
                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaAcril" class="iBut">
                    
@@ -558,7 +558,7 @@
                 <h3>Kit de ferramentas</h3>   
                    <h5>(Kit universal com mais de 15 ferramentas)</h5>
                    
-                   <p id="Tinta11">{{kit}}€</p>
+                   <p id="Tinta11">{{item[21]['price']}}€</p>
                    <br>
                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tinta" class="iBut">
 
@@ -572,7 +572,7 @@
                    <h3>Extensão elétrica</h3>
                    <h5>(Extensão com 4 entradas de 5m)</h5>
                    
-                      <p id="Pincel5">{{extensao}}€</p> 
+                      <p id="Pincel5">{{item[22]['price']}}€</p> 
                       <br>
                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="pincel" class="iBut">
 
@@ -586,7 +586,7 @@
                <div style="left: 50%;"> 
                    <h3>Alicate</h3>
                    <h5>(Alicate para corte de fios)</h5>
-                    <p id="Rolo7">{{alicate}}€</p><!--19,90-->
+                    <p id="Rolo7">{{item[23]['price']}}€</p><!--19,90-->
                     <br>
                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="rolo" class="iBut">
 
@@ -600,7 +600,7 @@
                <h3>Multímetro</h3>
                   <h5>(Multimetro digítal)</h5>
                  
-                  <p id="Tinta25">{{multi}}€</p>
+                  <p id="Tinta25">{{item[24]['price']}}€</p>
                   <br>
                   <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaExtInt" class="iBut">
 
@@ -620,7 +620,7 @@
                 <div style="left: 50%;"> 
                     <h3> Pá</h3>
                     <h5>(Pá de jardinagem, 90cm)</h5>
-                    <p id="Pa"> {{pa}}€</p>
+                    <p id="Pa"> {{item[25]['price']}}€</p>
                     <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaAcril" class="iBut">
                     
@@ -634,7 +634,7 @@
                  <h3> Tesoura de Poda</h3>   
                     <h5>(Tesoura para podar, aço)</h5>
                     
-                    <p id="Poda">{{tesoura}}€</p>
+                    <p id="Poda">{{item[26]['price']}}€</p>
                     <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tinta" class="iBut">
 
@@ -648,7 +648,7 @@
                     <h3> Ancinho</h3>
                     <h5>(Ancinho 16 dentes)</h5>
                     
-                       <p id="Ancinho">{{ancinho}}€</p> 
+                       <p id="Ancinho">{{item[27]['price']}}€</p> 
                        <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="pincel" class="iBut">
 
@@ -663,7 +663,7 @@
                     <h3> Sancho</h3>
                     <h5>(Enxada de 3 dentes)</h5>
                     
-                        <p id="Sancho">{{sancho}}€</p><!--19,90-->
+                        <p id="Sancho">{{item[28]['price']}}€</p><!--19,90-->
                         <br>
                     <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="rolo" class="iBut">
 
@@ -677,7 +677,7 @@
                 <h3> Corta relvas</h3>
                    <h5>(Corta relvas portátil)</h5>
                   
-                   <p id="CortaRelvas">{{corta}}€</p>
+                   <p id="CortaRelvas">{{item[29]['price']}}€</p>
                    <br>
                    <input type="submit" value="Adicionar ao carrinho" style="display: inline;" name="tintaExtInt" class="iBut">
 
