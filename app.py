@@ -119,9 +119,14 @@ def login():
         user = DB.get_user_by_email(email)
         if user and user[1] == hashlib.sha256(password.encode()).hexdigest():
             DB.login(email, hashlib.sha256(password.encode()).hexdigest())
-            resp = make_response(redirect('/servicos'))
+            resp = make_response(redirect('/serviços'))
             resp.set_cookie('email', str(email))
             return resp
+
+    # Check if user is already logged in
+    email_cookie = request.cookies.get('email')
+    if email_cookie is not None:
+        return redirect('/serviços')
 
     error = 'Invalid username or password'
     return render_template('login.html', error=error)
@@ -162,6 +167,9 @@ def logout():
 
 @app.route('/serviços/', methods=['POST', 'GET'])
 def serviços():
+    email_cookie = request.cookies.get('email')
+    if email_cookie is None:
+        return redirect('/login')
     return render_template('serviços.html')
 
 @app.route('/servicos_post', methods=['POST', 'GET'])
@@ -222,12 +230,17 @@ def escolhas():
             resp = make_response(redirect('/assistentes/'))
             resp.set_cookie('option','1')
             return resp
-
+    email_cookie = request.cookies.get('email')
+    if email_cookie is None:
+        return redirect('/login')
     return render_template('escolhas.html', error=error)
 
 
 @app.route('/assistentes/')
 def assistentes():
+    email_cookie = request.cookies.get('email')
+    if email_cookie is None:
+        return redirect('/login')
     return render_template('assistentes.html')
 
 @app.route('/check/')
@@ -240,6 +253,9 @@ def check():
 
 @app.route('/catalogo/', methods=['GET', 'POST'])
 def catalogo():
+    email_cookie = request.cookies.get('email')
+    if email_cookie is None:
+        return redirect('/login')
     return render_template('catalogo.html', tintaAcril=tintaAcril, 
                            tinta = tinta, pincel = pincel, 
                            rolo = rolo, tintaExtInt = tintaExtInt)
@@ -301,15 +317,25 @@ def pagamento():
 
     print(prod)
 
+    email_cookie = request.cookies.get('email')
+    if email_cookie is None:
+        return redirect('/login')
+
     return render_template('pagamento.html', conta=conta, prod = prod)
 
 
 @app.route('/account/', methods=['GET', 'POST'])
 def account():
+    email_cookie = request.cookies.get('email')
+    if email_cookie is None:
+        return redirect('/login')
     return render_template('account.html')
 
 @app.route('/sobre/')
 def sobre():
+    email_cookie = request.cookies.get('email')
+    if email_cookie is None:
+        return redirect('/login')
     return render_template('sobre.html')
 
 @app.route('/cenas/', methods=['GET', 'POST'])
