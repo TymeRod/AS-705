@@ -1,9 +1,10 @@
 import time
-from flask import Flask, render_template, request, redirect, make_response
+from flask import Flask, render_template, request, redirect, make_response, jsonify
 import hashlib
 import datetime
 import DB
 from PIL import Image, ImageDraw, ImageFont
+import json
 
 
 app = Flask(__name__, static_folder='css')
@@ -26,6 +27,46 @@ preço = {'Tinta acrílica mate 5L': tintaAcril,
          'Pincel  UNIVERSAL PP 60MM': pincel, 
          'Rolo Antigota Poliamida': rolo,
          'Tinta anti-mofo 5 L, branco': tintaExtInt}
+
+def get_service_json(service):
+    if service == 'pintura':
+        data = {'service': 'pintura',
+                 'description': 'Serviço de pintura de interiores e exteriores'}
+        
+    elif service == 'limpeza':
+        data = {'service': 'limpeza',
+                 'description': 'Serviço de limpeza de casas e escritórios'}
+        
+    elif service == 'eletricidade':
+        data = {'service': 'eletricidade',
+                 'description': 'Serviço de instalação e reparação elétrica'}
+        
+    elif service == 'Canalização':
+        data = {'service': 'Canalização',
+                 'description': 'Serviço de instalação e reparação de canalizações'}
+        
+    elif service == 'Carpintaria':
+        data = {'service': 'Carpintaria',
+                 'description': 'Serviço de carpintaria e marcenaria'}
+        
+    elif service == 'serralheria':
+        data = {'service': 'serralheria',
+                 'description': 'Serviço de serralharia e metalurgia'}
+        
+    elif service == 'Jardinagem':
+        data = {'service': 'Jardinagem',
+                 'description': 'Serviço de jardinagem e paisagismo'}
+        
+    elif service == 'Assistência':
+        data = {'service': 'Assistência',
+                 'description': 'Serviço de assistência técnica em geral'}
+    else:
+        data = {'error': 'Invalid service'}
+
+    with open('service.json', 'w') as f:
+        json.dump(data, f)
+
+    return 'service.json'
 
 
 
@@ -78,7 +119,7 @@ def login():
         user = DB.get_user_by_email(email)
         if user and user[1] == hashlib.sha256(password.encode()).hexdigest():
             DB.login(email, hashlib.sha256(password.encode()).hexdigest())
-            resp = make_response(redirect('/serviços'))
+            resp = make_response(redirect('/servicos'))
             resp.set_cookie('email', str(email))
             return resp
 
@@ -119,37 +160,45 @@ def logout():
     resp.delete_cookie('email')
     return resp
 
-@app.route('/servicos/', methods=['POST', 'GET'])
-def servicos():
-    return render_template('servicos.html')
+@app.route('/serviços/', methods=['POST', 'GET'])
+def serviços():
+    return render_template('serviços.html')
 
 @app.route('/servicos_post', methods=['POST', 'GET'])
 def servicos_post():
-    print('AAAAAAAAAAAAAa')
+
     if request.method == 'POST':
-        print(request.form)
+        print("AAAAAAAAAAAA")
         if 'pintura' in request.form:
+            get_service_json('pintura')
             return redirect('/escolhas/')
         
         if 'limpeza' in request.form:
+            get_service_json('limpeza')
             return redirect('/escolhas/')
         
         if 'eletricidade' in request.form:
+            get_service_json('eletricidade')  
             return redirect('/escolhas/')
         
-        if 'canalizacao' in request.form:
+        if 'Canalização' in request.form:
+            get_service_json('Canalização')
             return redirect('/escolhas/')
         
-        if 'carpintaria' in request.form:
+        if 'Carpintaria' in request.form:
+            get_service_json('Carpintaria')
             return redirect('/escolhas/')
         
         if 'serralheria' in request.form:
+            get_service_json('serralheria')
             return redirect('/escolhas/')
         
         if 'Jardinagem' in request.form:
+            get_service_json('Jardinagem')
             return redirect('/escolhas/')
         
         if 'Assistência' in request.form:
+            get_service_json('Assistência')
             return redirect('/escolhas/')
             
     return redirect('/servicos/')
@@ -195,8 +244,9 @@ def catalogo():
                            tinta = tinta, pincel = pincel, 
                            rolo = rolo, tintaExtInt = tintaExtInt)
 
-@app.route('/catalogo_post', methods=['GET', 'POST'])
+@app.route('/catalogo_post', methods=['POST', 'GET'])
 def catalogo_post():
+    print("AAAAAAAAAAAAAAAAAA")
     draw()
     if request.method == 'POST':
         print("AAAAAAAAAAAAAA")
@@ -258,6 +308,9 @@ def pagamento():
 def account():
     return render_template('account.html')
 
+@app.route('/sobre/')
+def sobre():
+    return render_template('sobre.html')
 
 @app.route('/cenas/', methods=['GET', 'POST'])
 def cenas():
