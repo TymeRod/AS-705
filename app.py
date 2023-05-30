@@ -10,23 +10,18 @@ import json
 app = Flask(__name__, static_folder='css')
 
 
-tintaAcril = 13.49
-ta = 0
-tinta = 11.99
-t = 0
-pincel = 5.49
-p = 0
-rolo = 7.99
-r = 0
-tintaExtInt = 25.89
-tei = 0
-
 compra = dict()
-preço = {'Tinta acrílica mate 5L': tintaAcril, 
-         'Tinta mate exterior BRANCO 4L': tinta,
-         'Pincel  UNIVERSAL PP 60MM': pincel, 
-         'Rolo Antigota Poliamida': rolo,
-         'Tinta anti-mofo 5 L, branco': tintaExtInt}
+preço = dict()
+
+with open('items.json', 'r') as f:
+    data = json.load(f)
+
+items = data['items']
+
+for item in items:
+    compra[item['name']] = 0
+    preço[item['name']] = item['price']
+
 
 def get_service_json(service):
     if service == 'pintura':
@@ -254,15 +249,6 @@ def check():
 @app.route('/catalogo/', methods=['GET', 'POST'])
 def catalogo():
 
-    with open('items.json', 'r') as f:
-        data = json.load(f)
-
-    items = data['items']
-
-    # Print the name and price of each item
-    for item in items:
-        print(item['name'], item['price'])
-
     email_cookie = request.cookies.get('email')
     if email_cookie is None:
         return redirect('/login')
@@ -277,41 +263,18 @@ def catalogo_post():
         print(request.form)
         
         for i in request.form:
-            print(i)
+
+            for item in items:
+                if item['name'] == i:
+                    compra[item['name']] = compra[item['name']] + 1
+                    print(item['name'], item['price'])
+                    print(i)
 
 
         if 'carrinho' in request.form:
             return redirect('/pagamento/')
 
-        if 'tintaAcril' in request.form:
-            global ta
-            ta = ta + 1
-            compra['Tinta acrílica mate 5L'] = int(ta)
-            draw()
-            
-        if 'tinta' in request.form:
-            global t
-            t = t + 1
-            compra['Tinta mate exterior BRANCO 4L'] = int(t)
-            draw()
-
-        if 'pincel' in request.form:
-            global p
-            p = p + 1
-            compra['Pincel  UNIVERSAL PP 60MM'] = int(p)
-            draw()
-
-        if 'rolo' in request.form:
-            global r
-            r = r + 1
-            compra['Rolo Antigota Poliamida'] = int(r)
-            draw()
-
-        if 'tintaExtInt' in request.form:
-            global tei
-            tei = tei + 1
-            compra['Tinta anti-mofo 5 L, branco'] = int(tei)
-            draw()
+    
             
     return redirect('/catalogo/')
     
@@ -322,6 +285,7 @@ def pagamento():
     conta = 0
     prod = []
     for i in compra:
+
         conta += preço[i]*compra[i]
 
     for i in compra:
