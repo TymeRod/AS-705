@@ -96,100 +96,100 @@ fieldset {
 <body>
     <div class="background-layer" style="background-image: url('../css/images/comopintarparedes.jpeg');"></div>
     <nav class="sidebar close">
-      <header>
-          <div class="image-text">
-              <span class="image">
-                  <span class="text2">GMU</span>
-              </span>
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <span class="text2">GMU</span>
+                </span>
 
-              <div class="text logo-text">
-                  
-                  <span class="name" style="font-size: 28px; margin-left: -23%;margin-top: 8%;">GuideMeUp</span>
-                  <span class="profession" style = "margin-left: -23%;">Serviços domésticos</span>
-              </div>
-          </div>
+                <div class="text logo-text">
+                    
+                    <span class="name" style="font-size: 28px; margin-left: -23%;margin-top: 8%;">GuideMeUp</span>
+                    <span class="profession" style = "margin-left: -23%;">Serviços domésticos</span>
+                </div>
+            </div>
 
-          <i class='bx bx-chevron-right toggle'></i>
-      </header>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
 
-      <div class="menu-bar">
-          <div class="menu">
+        <div class="menu-bar">
+            <div class="menu">
 
-              <li class="search-box" style="height: 0px;"></li> <!--nao apagar-->
+                <li class="search-box" style="height: 0px;"></li> <!--nao apagar-->
 
-              <ul class="menu-links">
-                  <li class="nav-link">
-                      <a href="{{url_for('.index')}}">
-                          <i class='bx bx-home-alt icon' ></i>
-                          <span class="text nav-text">Inicio</span>
-                      </a>
-                  </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="{{url_for('.index')}}">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Inicio</span>
+                        </a>
+                    </li>
 
-                  <li class="nav-link">
-                      <a href="{{url_for('.serviços')}}">
-                          <i class='bx bx-list-ul icon' ></i>
-                          <span class="text nav-text">Serviços</span>
-                      </a>
-                  </li>
+                    <li class="nav-link">
+                        <a href="{{url_for('.serviços')}}">
+                            <i class='bx bx-list-ul icon' ></i>
+                            <span class="text nav-text">Serviços</span>
+                        </a>
+                    </li>
 
 
-                  <li class="nav-link">
-                      <a href="{{url_for('.catalogo')}}">
-                          <i class='bx bx-grid-alt icon' ></i>
-                          <span class="text nav-text">Catálogo</span>
-                      </a>
-                  </li>
+                    <li class="nav-link">
+                        <a href="{{url_for('.catalogo')}}">
+                            <i class='bx bx-grid-alt icon' ></i>
+                            <span class="text nav-text">Catálogo</span>
+                        </a>
+                    </li>
 
-                  <li class="nav-link">
-                      <a href="{{url_for('.pagamento')}}">
-                          <i class='bx bx-cart icon' ></i>
-                          <span class="text nav-text">Carrinho</span>
-                      </a>
-                  </li>
-                  <li class="nav-link">
-                      <a href="{{url_for('.account')}}">
-                          <i class='bx bx-user icon'></i>
-                          <span class="text nav-text">Conta</span>
-                      </a>
-                  </li>
-                  <li class="nav-link">
-                      <a href="{{url_for('.')}}">
-                          <i class='bx bx-info-circle icon' ></i>
-                          <span class="text nav-text">Sobre</span>
-                      </a>
-                  </li>
+                    <li class="nav-link">
+                        <a href="{{url_for('.pagamento')}}">
+                            <i class='bx bx-cart icon' ></i>
+                            <span class="text nav-text">Carrinho</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{url_for('.account')}}">
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Conta</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{url_for('.sobre')}}">
+                            <i class='bx bx-info-circle icon' ></i>
+                            <span class="text nav-text">Sobre</span>
+                        </a>
+                    </li>
 
-              </ul>
-          </div>
+                </ul>
+            </div>
 
-          <div class="bottom-content">
-              <li class="">
-                  <a href="#">
-                      <i class='bx bx-log-out icon' ></i>
-                      <span class="text nav-text">Logout</span>
-                  </a>
-              </li>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="/logout">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
 
-              <li class="mode">
-                  <div class="sun-moon">
-                      <i class='bx bx-moon icon moon'></i>
-                      <i class='bx bx-sun icon sun'></i>
-                  </div>
-                  <span class="mode-text text">Dark mode</span>
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
 
-                  <div class="toggle-switch">
-                      <span class="switch"></span>
-                  </div>
-              </li>
-              
-          </div>
-      </div>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
 
-  </nav>
-  <form>
+    </nav>
+  
 
     
-    <form>
+    <form method="post">
       <fieldset>
         <h1 style="font-size: 50px;color: #000000; margin-top: -2%; padding-bottom: 10%;">Tutoriais de pintura</h1><br>
 
@@ -206,7 +206,7 @@ fieldset {
         <h1 style="font-size: 20px;color: #000000; margin-top: 5%; margin-left: 30%; width: 450px;">A sua parede exterior está a descascar? Aprenda como repintá-la com o Ricardo e a Sandra!</h1><br>
         <h1 style="font-size: 20px;color: #000000; margin-top: 30%; margin-left: 30%; width: 450px;">Ainda precisa de ajuda? Pode sempre chamar um dos nossos especialistas.</h1><br>
         <div style="display: flex; justify-content: center; margin-top: 20px;">
-            <input class="btn" type="button" value="Chamar especialista" style="font-size: 20px; padding: 10px 20px;margin-top: -1%;">
+            <input class="btn" type="submit" value="Chamar especialista"  style="font-size: 20px; padding: 10px 20px;margin-top: -1%;">
         </div>
     </fieldset>
     </form>

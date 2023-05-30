@@ -213,22 +213,38 @@ def inicio():
 
 @app.route('/escolhas/', methods=['GET', 'POST'])
 def escolhas():
-    error = None
-    if request.method == 'POST':
-        option1 = request.form.get('option1')
-        option2 = request.form.get('option2')
-        if option1 is not None and option2 is not None and ((option1 == '1' and option2 == '2') or (option1 == '2' and option2 == '2')):
-            resp = make_response(redirect('/assistentes/'))
-            resp.set_cookie('option','0')
-            return resp
-        else:
-            resp = make_response(redirect('/assistentes/'))
-            resp.set_cookie('option','1')
-            return resp
     email_cookie = request.cookies.get('email')
     if email_cookie is None:
         return redirect('/login')
-    return render_template('escolhas.html', error=error)
+    return render_template('escolhas.html')
+
+@app.route('/escolhas_post', methods=['POST', 'GET'])
+def escolhas_post():
+    print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC")
+    if request.method == 'POST':
+        print("AAAAAAAAAAAAAAAAAAAAAa")
+        print('request:', request)
+        option1 = request.form.get('option1')
+        option2 = request.form.get('option2')
+        print('option1:', option1)
+        print('option2:', option2)
+        if  ((option1 == '1' and option2 == '2')):
+            resp = make_response(redirect('/tutoriais/'))
+            resp.set_cookie('option','1')
+            return resp
+        elif  ((option1 == '2' and option2 == '2')):
+            resp = make_response(redirect('/assistentes/'))
+            resp.set_cookie('option','1')
+            return resp
+        elif  ((option1 == '1' and option2 == '1')):
+            resp = make_response(redirect('/tutoriais/'))
+            resp.set_cookie('option','0')
+            return resp
+        elif  ((option1 == '2' and option2 == '1')):
+            resp = make_response(redirect('/assistentes/'))
+            resp.set_cookie('option','0')
+            return resp
+    return redirect('/escolhas/')
 
 
 @app.route('/assistentes/')
@@ -248,7 +264,7 @@ def check():
 
 @app.route('/catalogo/', methods=['GET', 'POST'])
 def catalogo():
-
+    draw()
     email_cookie = request.cookies.get('email')
     if email_cookie is None:
         return redirect('/login')
@@ -257,25 +273,21 @@ def catalogo():
 @app.route('/catalogo_post', methods=['POST', 'GET'])
 def catalogo_post():
     print("AAAAAAAAAAAAAAAAAA")
-    draw()
+    
     if request.method == 'POST':
         print("AAAAAAAAAAAAAA")
         print(request.form)
-        
-        for i in request.form:
-
-            for item in items:
-                if item['name'] == i:
-                    compra[item['name']] = compra[item['name']] + 1
-                    print(item['name'], item['price'])
-                    print(i)
-
 
         if 'carrinho' in request.form:
             return redirect('/pagamento/')
-
-    
+        
+        for i in request.form:
             
+            for item in items:
+                if item['name'] == i:
+                    compra[item['name']] = compra[item['name']] + 1
+                    draw()
+
     return redirect('/catalogo/')
     
 
@@ -292,13 +304,21 @@ def pagamento():
         for j in range(int(compra[i])):
             prod.append(i)
 
-    print(prod)
 
     email_cookie = request.cookies.get('email')
-    if email_cookie is None:
+    if email_cookie is None:    
         return redirect('/login')
 
     return render_template('pagamento.html', conta=conta, prod = prod)
+
+@app.route('/pagamento_post', methods=['POST', 'GET'])
+def pagamento_post():
+    if request.method == 'POST':
+        for i in compra:
+            compra[i] = 0
+
+        return redirect('/index/')
+    return redirect('/pagamento/')
 
 
 @app.route('/account/', methods=['GET', 'POST'])
@@ -307,6 +327,19 @@ def account():
     if email_cookie is None:
         return redirect('/login')
     return render_template('account.html')
+
+
+@app.route('/tutoriais/', methods=['GET', 'POST'])
+def tutoriais():
+
+    if request.method == 'POST':
+        return redirect('/assistentes/')
+
+    email_cookie = request.cookies.get('email')
+    if email_cookie is None:
+        return redirect('/login')
+    return render_template('tutoriaispintura.html')
+
 
 @app.route('/sobre/')
 def sobre():
