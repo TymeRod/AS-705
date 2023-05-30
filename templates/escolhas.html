@@ -10,30 +10,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <style>
         form{
-            width: 700px;
-            background-color: #e2e1e1;
+            width: 50%;
+            margin: 0 auto;
+            
+            background-color: #f3f3f3;
             display:block ;
-            display: inline-block;
+            margin-top: 10%;
             text-align: center;
-            border-radius: 20px;
-            padding: 25px;
+            border-radius: 50px;
+            padding: 30px;
             font-size: 25px;
-            margin: 40px auto;
-            box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-            color: #000000;
-            margin-top: -9%;
         }
-        fieldset {
-            border: none;
-            margin: 10px auto;
+        
+        .background-layer{  
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+    fieldset {
+        border: none;
+        margin: 10px auto;
     }   
-        input{
+    input{
             width: 40px;
             height: 40px;
             
             display: inline-block;
             
-        }
+    }
 
         *{
     margin: 0;
@@ -65,6 +75,8 @@
 </head>
 <body>
     <div class="background-layer" style="background-image: url('../css/images/especificaçoes.jpg');"></div>
+    
+    
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -159,7 +171,7 @@
     <form>
 
     <fieldset>
-    <div class="center" style="text-align: center;font-size: 30px;top: 50%;">
+    <div class="" style="text-align: center;font-size: 30px;top: 50%;">
        <form id="checkboxForm" method="post">
             <h1 style="font-size: 60px;color: #000000;">Pintura</h1><br>
 
@@ -180,6 +192,7 @@
         </form> 
     </div>
     </fieldset>
+    </form>
     <script>
         const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),
