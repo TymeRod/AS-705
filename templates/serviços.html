@@ -124,7 +124,7 @@
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="{{url_for('.')}}">
+                        <a href="{{url_for('.sobre')}}">
                             <i class='bx bx-info-circle icon' ></i>
                             <span class="text nav-text">Sobre</span>
                         </a>
@@ -157,29 +157,28 @@
         </div>
 
     </nav>
-    <form>
+    <form method="post" action="{{url_for('servicos_post')}}">
+        <div class="container">
+            <div class="column1" style="padding-left: 10%;">
+                <input type="submit"  class="serviços-button" value="Pintura" style="background-image: url('../css/images/pintorfundo.jpg');" name="pintura">
+                <input type="submit"  class="serviços-button" value="Limpeza" style="background-image: url('../css/images/limpeza1.jpg');" name="limpeza">
+            </div>
 
-    <div class="container">
-        <div class="column1" style="padding-left: 10%;">
-            <input type="submit" class="serviços-button" value="Pintura" style="background-image: url('../css/images/pintorfundo.jpg');">
-            <input type="submit" class="serviços-button" value="Limpeza" style="background-image: url('../css/images/limpeza1.jpg');">
-        </div>
+            <div class="column1"style="padding-left: 7%;">
+                <input type="submit"  class="serviços-button" value="Canalização" style="background-image: url('../css/images/canalizacoes1.jpg');" name="Canalização">
+                <input type="submit"  class="serviços-button" value="Eletricidade" style="background-image: url('../css/images/eletricidade1.jpeg');" name="eletricidade">
+            </div>
 
-        <div class="column1"style="padding-left: 7%;">
-            <input type="submit" class="serviços-button" value="Canalização" style="background-image: url('../css/images/canalizacoes1.jpg');">
-            <input type="submit" class="serviços-button" value="Eletricidade" style="background-image: url('../css/images/eletricidade1.jpeg');">
-        </div>
+            <div class="column1"style="padding-left: 4%;">
+                <input type="submit"  class="serviços-button" value="Carpintaria" style="background-image: url('../css/images/carpintaria1.jpg');" name="Carpintaria">
+                <input type="submit"  class="serviços-button" value="Serralharia" style="background-image: url('../css/images/serralheria.jpg');" name="serralheria">
+            </div>
 
-        <div class="column1"style="padding-left: 4%;">
-            <input type="submit" class="serviços-button" value="Carpintaria" style="background-image: url('../css/images/carpintaria1.jpg');">
-            <input type="submit" class="serviços-button" value="Serralharia" style="background-image: url('../css/images/serralheria.jpg');">
+            <div class="column1"style="padding-left: 1%;">
+                <input type="submit"  class="serviços-button" value="Jardinagem" style="background-image: url('../css/images/jardinagem1.jpg');" name="Jardinagem">
+                <input type="submit"  class="serviços-button" value="Assistência" style="background-image: url('../css/images/cuidador1.jpg');" name="Assistência">
+            </div>
         </div>
-
-        <div class="column1"style="padding-left: 1%;">
-            <input type="submit" class="serviços-button" value="Jardinagem" style="background-image: url('../css/images/jardinagem1.jpg');">
-            <input type="submit" class="serviços-button" value="Assistência" style="background-image: url('../css/images/cuidador1.jpg');">
-        </div>
-    </div>
     </form>
     <script>
         const body = document.querySelector('body'),

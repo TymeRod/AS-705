@@ -160,14 +160,15 @@ def logout():
     resp.delete_cookie('email')
     return resp
 
-@app.route('/servicos/', methods=['POST', 'GET'])
-def servicos():
-    return render_template('servicos.html')
+@app.route('/serviços/', methods=['POST', 'GET'])
+def serviços():
+    return render_template('serviços.html')
 
 @app.route('/servicos_post', methods=['POST', 'GET'])
 def servicos_post():
 
     if request.method == 'POST':
+        print("AAAAAAAAAAAA")
         if 'pintura' in request.form:
             get_service_json('pintura')
             return redirect('/escolhas/')
@@ -243,8 +244,9 @@ def catalogo():
                            tinta = tinta, pincel = pincel, 
                            rolo = rolo, tintaExtInt = tintaExtInt)
 
-@app.route('/catalogo_post', methods=['GET', 'POST'])
+@app.route('/catalogo_post', methods=['POST', 'GET'])
 def catalogo_post():
+    print("AAAAAAAAAAAAAAAAAA")
     draw()
     if request.method == 'POST':
         print("AAAAAAAAAAAAAA")
@@ -306,6 +308,9 @@ def pagamento():
 def account():
     return render_template('account.html')
 
+@app.route('/sobre/')
+def sobre():
+    return render_template('sobre.html')
 
 @app.route('/cenas/', methods=['GET', 'POST'])
 def cenas():
