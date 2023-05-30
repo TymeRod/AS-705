@@ -267,6 +267,11 @@ def catalogo_post():
     if request.method == 'POST':
         print("AAAAAAAAAAAAAA")
         print(request.form)
+        
+        for i in request.form:
+            print(i)
+
+
         if 'carrinho' in request.form:
             return redirect('/pagamento/')
 
