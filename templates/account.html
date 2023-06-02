@@ -247,30 +247,28 @@ button[type="submit"] {
       </div>
 
   </nav>
-  <form>
-
-    <form>
+    <form method="post" action="{{url_for('account_post')}}">
       <fieldset>
         <h1 style="font-size: 60px;color: #000000; margin-top: -2%;">A minha conta</h1><br>
 
         <label style="font-size: 30px;margin-top:-4%;">Informação pessoal:</label>
         <div>
           <div class="form-input-container">
-            <label for="fname" style="padding-top: 10px;">Nome:</label>
-            <input class="bckgrnd" type="text" name="firstname" id="fname"  minlength="3" required/>
             <label for="lname">Endereço:</label>
-            <input class="bckgrnd"type="text" name="lastname" id="lname"  >
+            <input class="bckgrnd"type="text" name="lastname" id="lname" value="{{morada}}"  >
             <label for="email">Email:</label>
-            <input class="bckgrnd"type="email" name="email" id="email" >
+            <input class="bckgrnd"type="email" name="email" id="email" value="{{email}}" >
             <label for="phone">Telemóvel:</label>
-            <input class="bckgrnd"type="tel" name="phone" id="phone">
+            <input class="bckgrnd"type="tel" name="phone" id="phone" value="{{tel}}">
             <label for="phone">Data de nascimento:</label>
-            <input class="bckgrnd"type="tel" name="birth" id="birth"><br><br><br>
+            <input class="bckgrnd"type="tel" name="birth" id="birth" value="{{bir}}"><br><br><br>
             <label for="fname" style="margin-top: -4%;">Histórico de serviços:</label>
             <div class="bckgrnd" style="width:100%; height:200px; overflow:auto; padding:10px; border:1px solid #ccc;">
                 <!-- Conteúdo da área de histórico aqui -->
-                <h1>Hello</h1><br><br><br><br>
-                <h1>Hello</h1><br><br><br><br>
+                {% for i in task %}
+                <h3>{{i}}</h3><br>
+                {% endfor %}
+
             </div>
         </div>
           </div>
@@ -281,8 +279,8 @@ button[type="submit"] {
         
         
           
-       
-      <input type="submit" value="Eliminar conta" style="color:rgba(255, 255, 255, 0.7);background-color:rgba(240, 63, 4, 0.825); width: 20%;margin-left: 2%; text-align: center;" onclick="return confirm('Tem a certeza que deseja eliminar a conta?');">
+      <input type="submit" value="Mudar Conta" name="Mudar" style="color:rgba(255, 255, 255, 0.7);background-color:rgb(59, 240, 4); width: 20%;margin-left: 2%; text-align: center;" onclick="return confirm('Tem a certeza que deseja mudar os dados da conta?');">
+      <input type="submit" value="Eliminar conta" name="Elimina" style="color:rgba(255, 255, 255, 0.7);background-color:rgba(240, 63, 4, 0.825); width: 20%;margin-left: 2%; text-align: center;" onclick="return confirm('Tem a certeza que deseja eliminar a conta?');">
     </form>
     <script>
       const body = document.querySelector('body'),

@@ -317,6 +317,15 @@ def pagamento_post():
         for i in compra:
             compra[i] = 0
 
+        with open('service.json', 'r') as f:
+            task = json.load(f)
+        
+        service = task['service']
+        email_cookie = request.cookies.get('email')
+        #get todays date
+        today = datetime.date.today()
+        DB.add_task(email_cookie, service, today, 'pendente')
+
         return redirect('/index/')
     return redirect('/pagamento/')
 
@@ -326,8 +335,30 @@ def account():
     email_cookie = request.cookies.get('email')
     if email_cookie is None:
         return redirect('/login')
-    return render_template('account.html')
+    
+    email,tel,date, morada = DB.get_user_info(email_cookie)
 
+    task = DB.get_tasks(email_cookie)
+
+    return render_template('account.html', morada=morada, email=email, tel=tel, bir=date, task=task)
+
+@app.route('/account_post', methods=['POST', 'GET'])
+def account_post():
+    email = request.form.get('email')
+    tel = request.form.get('phone')
+    date_str = request.form.get('birth')
+    address = request.form.get('lastname')
+    if request.method == 'POST':
+        if 'Mudar' in request.form:
+            DB.update_user(email, tel, date_str, address)
+            return redirect('/account/')
+        if 'Eliminar' in request.form:
+            DB.delete_user(email)
+            resp = make_response(redirect('/index'))
+            resp.delete_cookie('email')
+            return resp
+
+    return redirect('/account/')
 
 @app.route('/tutoriais/', methods=['GET', 'POST'])
 def tutoriais():
