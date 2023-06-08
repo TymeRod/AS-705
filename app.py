@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 import json
 
 
-app = Flask(__name__, static_folder='css')
+app = Flask(__name__, static_folder='static')
 
 
 compra = dict()
@@ -388,4 +388,4 @@ def cenas():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True)

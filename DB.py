@@ -83,3 +83,4 @@ def delete_table():
 
 
 
+print(sqlite3.version)
